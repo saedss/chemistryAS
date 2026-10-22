@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Interactive AS Chemistry lesson: Chapter 3, Bonding and Structure, with 3D models and a step-by-step guide to hybridization.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bonding Lab">
+<meta name="theme-color" content="#f3f6fa">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Bonding and Structure Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column (max 1060px) under a sticky chapter bar. Each Part opens with a moving picture; Part 5 (hybridization) is the long focus section. Grids stack to one column under 760px. */
+:root{
+  --paper:#f3f6fa; --card:#ffffff; --soft:#e9eef5; --line:#d4dce7;
+  --ink:#142033; --muted:#5b6a80;
+  --accent:#1d5fd1; --accent-ink:#ffffff;
+  --s:#f0b323; --p:#1aa6bf; --hyb:#36a157; --sigma:#e2409a; --pi:#86c33a; --lp:#9b5de5;
+  --ok:#2a9d5c; --bad:#d8463f;
+  --display:'Manrope',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e141d; --card:#161e2a; --soft:#1d2736; --line:#2a3647;
+    --ink:#e7edf5; --muted:#9db0c6;
+    --accent:#6ea4ff; --accent-ink:#0b1220;
+    --s:#f5c342; --p:#36c3d9; --hyb:#55c572; --sigma:#f263b4; --pi:#a6d95a; --lp:#b588f0;
+    --ok:#4fc27e; --bad:#ef6b64;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e141d; --card:#161e2a; --soft:#1d2736; --line:#2a3647;
+  --ink:#e7edf5; --muted:#9db0c6;
+  --accent:#6ea4ff; --accent-ink:#0b1220;
+  --s:#f5c342; --p:#36c3d9; --hyb:#55c572; --sigma:#f263b4; --pi:#a6d95a; --lp:#b588f0;
+  --ok:#4fc27e; --bad:#ef6b64;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--paper)}
+.wrap{max-width:1060px;margin:0 auto}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,3.6rem);font-weight:800;letter-spacing:-.025em}
+h2{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:800;letter-spacing:-.015em}
+h3{font-size:1.28rem;font-weight:800}
+h4{font-size:1.02rem;font-weight:700}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.25em}
+li+li{margin-top:4px}
+b,strong{font-weight:600}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:1.1rem;max-width:64ch;color:var(--muted)}
+.prose{max-width:66ch;display:grid;gap:12px;align-content:start;min-width:0}
+p.prose{display:block}
+.cfg{font-family:var(--mono);font-weight:600;background:var(--soft);padding:2px 7px;border-radius:4px;font-size:.93em;white-space:nowrap}
+.pg{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em}
+.cap{font-size:.9rem;color:var(--muted)}
+figure{margin:0}
+
+/* chapter bar */
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--paper);margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--line)}
+.toc-in{max-width:1060px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding-block:8px;scrollbar-width:none}
+.toc-in::-webkit-scrollbar{display:none}
+.toc a{flex:none;font-family:var(--mono);font-size:.74rem;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;transition:background .2s,color .2s}
+.toc a.star{border-color:var(--hyb);font-weight:600}
+.toc a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.toc a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.prog{height:3px;margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)))}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--hyb),var(--p),var(--sigma))}
+
+/* hero */
+.hero{padding-block:36px 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center}
+.hero-text{display:grid;gap:16px;min-width:0}
+.hero h1 .glow{background:linear-gradient(90deg,var(--hyb),var(--p),var(--sigma),var(--hyb));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 8s linear infinite}
+@keyframes slide{to{background-position:300% 0}}
+.howto{display:grid;gap:6px;padding-left:1.3em;color:var(--muted)}
+.howto b{color:var(--ink)}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-block:24px 12px}}
+
+/* terms + popover */
+.term{font:inherit;color:inherit;background:none;border:0;padding:0;border-bottom:2px dotted var(--accent);cursor:help;line-height:inherit}
+.term:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pop{position:fixed;z-index:40;background:var(--card);border:1px solid var(--accent);border-radius:12px;padding:10px 12px;box-shadow:0 10px 30px rgba(10,20,40,.18);display:grid;gap:4px;font-size:.93rem}
+.pop b{font-family:var(--display)}
+
+/* 3D stages */
+.viz{position:relative;width:100%;max-width:100%;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:radial-gradient(120% 90% at 50% 38%,var(--card) 0%,var(--soft) 100%)}
+.r85{aspect-ratio:1/.85}.r80{aspect-ratio:1/.8}.r70{aspect-ratio:1/.7}.r62{aspect-ratio:1/.62}
+.viz canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+.viz canvas.grabbing{cursor:grabbing}
+.viz .hint{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;pointer-events:none;transition:opacity .5s;z-index:2}
+.viz .fb{position:absolute;inset:0;display:grid;place-items:center;padding:8px}
+.viz .fb svg{width:100%;height:100%}
+.viz-fig{display:grid;gap:8px;min-width:0}
+.viz-fig figcaption{font-size:.9rem;color:var(--muted)}
+
+/* parts */
+section.part{padding-block:56px 12px;display:grid;gap:20px;border-top:2px solid var(--line);scroll-margin-top:64px}
+.sec-head{display:grid;gap:8px}
+.sub{display:grid;gap:14px;padding-top:22px;scroll-margin-top:64px}
+.sub>h3 .n{font-family:var(--mono);font-size:.9rem;color:var(--accent);margin-right:8px;font-weight:600}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:860px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.grid3{grid-template-columns:1fr}}
+@media(max-width:560px){.grid2,.grid4{grid-template-columns:1fr}}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:8px;align-content:start;min-width:0}
+.card .tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;width:max-content;color:var(--accent-ink);background:var(--accent)}
+.card p,.card li{color:var(--muted);font-size:.96rem}
+.card strong,.card b{color:var(--ink)}
+.card .pull{font-family:var(--mono);font-size:.8rem;color:var(--ink);background:var(--soft);border-radius:6px;padding:4px 8px}
+.card .big{font-family:var(--display);font-weight:800;font-size:1.6rem;letter-spacing:.02em}
+canvas.anim{display:block;width:100%;border-radius:10px;background:var(--soft)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.84rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:13px;height:13px;border-radius:50%;display:inline-block}
+.callout{border-left:4px solid var(--accent);background:var(--soft);padding:12px 14px;border-radius:0 10px 10px 0;max-width:70ch}
+.callout.warn{border-left-color:var(--sigma)}
+.callout.good{border-left-color:var(--ok)}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.rule span{font-family:var(--mono);font-size:.86rem}
+.rule b{font-family:var(--display)}
+.analogy{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:color-mix(in srgb,var(--s) 14%,var(--card));border:1px solid color-mix(in srgb,var(--s) 45%,var(--line));border-radius:14px;padding:14px}
+.analogy .ic{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--s);color:#1b1505;border-radius:6px;padding:3px 7px;white-space:nowrap}
+.what{display:grid;gap:10px;align-content:start;min-width:0}
+.focus{border:2px solid var(--hyb);background:color-mix(in srgb,var(--hyb) 10%,var(--card));border-radius:16px;padding:16px 18px;display:grid;gap:8px}
+.focus .badge{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--hyb);font-weight:600}
+.steps3{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-family:var(--display);font-weight:800}
+.steps3 span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.steps3 i{font-style:normal;color:var(--muted)}
+
+/* buttons, chips */
+.btn{font-family:var(--display);font-weight:700;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 14px;cursor:pointer;font-size:.92rem;transition:transform .15s}
+.btn:active{transform:scale(.96)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:default}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-weight:600;font-size:.86rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;transition:transform .15s}
+.chip:hover{transform:translateY(-1px)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:focus-visible,.tab:focus-visible,.step:focus-visible,.chip:focus-visible,.opt:focus-visible,.gcell:focus-visible,.myth:focus-visible,.ecell:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ctrls{display:flex;gap:8px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.ctrls .grp{display:flex;gap:8px;flex-wrap:wrap}
+.slider{display:grid;gap:6px;min-width:0}
+.slider input{width:100%;accent-color:var(--accent)}
+.readout{font-family:var(--mono);font-size:.88rem;display:flex;gap:8px 14px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.readout .broken{color:var(--bad);font-weight:600}
+.stage{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;gap:12px;min-width:0}
+.stage canvas{display:block;width:100%}
+
+/* quick checks + quiz */
+.check{position:relative;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:14px 16px;display:grid;gap:8px;max-width:760px}
+.q{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:10px}
+.qt{font-weight:600}
+.opts{display:grid;gap:6px}
+.opt{text-align:left;border:1px solid var(--line);background:var(--soft);color:var(--ink);border-radius:8px;padding:9px 12px;cursor:pointer;font:inherit;font-size:.95rem;transition:transform .15s,border-color .2s}
+.opt:hover:not(:disabled){border-color:var(--accent);transform:translateX(3px)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--card));animation:bump .45s}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--card));animation:shake .45s}
+@keyframes bump{40%{transform:scale(1.03)}}
+@keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+.fb{font-size:.94rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px}
+.fb.good{border-left-color:var(--ok)}
+.fb.poor{border-left-color:var(--bad)}
+.spark{position:absolute;width:7px;height:7px;border-radius:2px;pointer-events:none;z-index:3}
+.quiz{display:grid;gap:12px}
+.score{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--display);font-weight:700}
+.score .n{font-variant-numeric:tabular-nums;font-size:1.2rem}
+.meter{height:10px;border-radius:5px;background:var(--soft);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--hyb),var(--p));transition:width .6s cubic-bezier(.3,1.3,.5,1)}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+/* ion table */
+.groups{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px}
+@media(max-width:560px){.groups{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.gcell{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 4px;display:grid;gap:2px;justify-items:center;cursor:pointer;color:var(--ink);font:inherit;transition:transform .15s;min-width:0}
+.gcell:hover{transform:translateY(-2px)}
+.gcell small{font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.06em}
+.gcell strong{font-family:var(--display);font-weight:800;font-size:1.2rem}
+.gcell em{font-style:normal;font-family:var(--mono);font-size:.68rem;color:var(--muted)}
+.gcell.pos{background:color-mix(in srgb,var(--accent) 12%,var(--card))}
+.gcell.neg{background:color-mix(in srgb,var(--sigma) 12%,var(--card))}
+.gcell[aria-pressed="true"]{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink) inset}
+.iondetail{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;align-items:center}
+@media(max-width:560px){.iondetail{grid-template-columns:1fr}}
+.iondetail svg{width:100%;max-width:220px;height:auto}
+.eout{animation:eout 1.1s .5s ease-in forwards;transform-box:fill-box}
+.ein{animation:ein 1.1s .5s ease-out backwards;transform-box:fill-box}
+.late{animation:late .5s 1.4s backwards}
+@keyframes eout{to{transform:translate(var(--dx),var(--dy));opacity:0}}
+@keyframes ein{from{transform:translate(var(--dx),var(--dy));opacity:0}}
+@keyframes late{from{opacity:0}}
+.memo{display:flex;flex-wrap:wrap;gap:6px}
+.memo span{font-family:var(--mono);font-size:.84rem;background:var(--soft);border-radius:6px;padding:3px 8px}
+
+/* formula builder */
+.fx{display:grid;gap:12px}
+.fx .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.tokens{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:42px}
+.tok{font-family:var(--mono);font-weight:600;border-radius:8px;padding:6px 10px;animation:tok .45s cubic-bezier(.3,1.6,.5,1) backwards}
+.tok.c{background:color-mix(in srgb,var(--accent) 16%,var(--card));border:1px solid var(--accent)}
+.tok.a{background:color-mix(in srgb,var(--sigma) 14%,var(--card));border:1px solid var(--sigma)}
+@keyframes tok{from{transform:scale(0) rotate(-12deg)}}
+.formula{font-family:var(--display);font-weight:800;font-size:2.2rem;letter-spacing:.01em;animation:tok .5s .2s cubic-bezier(.3,1.6,.5,1) backwards}
+.formula small{font-family:var(--body);font-size:1rem;font-weight:500;color:var(--muted);margin-left:10px}
+.balance{font-family:var(--mono);font-size:.9rem;display:flex;flex-wrap:wrap;gap:6px 16px}
+.balance .ok{color:var(--ok);font-weight:600}
+
+/* svg boxes */
+.svgbox{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;overflow-x:auto;display:grid;gap:6px}
+.svgbox svg{display:block;width:100%;height:auto}
+.svgbox.wide svg{min-width:480px}
+.go .pop{animation:pop .6s cubic-bezier(.3,1.6,.5,1) backwards;transform-box:fill-box;transform-origin:center}
+.go .stamp{animation:stamp .55s cubic-bezier(.3,1.6,.5,1) backwards;transform-box:fill-box;transform-origin:center}
+.go .grow{animation:grow .9s cubic-bezier(.3,1.2,.5,1) backwards;transform-box:fill-box;transform-origin:left center}
+@keyframes pop{from{transform:scale(0);opacity:0}}
+@keyframes stamp{from{transform:scale(1.9) rotate(-8deg);opacity:0}}
+@keyframes grow{from{transform:scaleX(0)}}
+.multi .big{font-family:var(--display);font-weight:800;font-size:1.9rem}
+.vs2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:520px){.vs2{grid-template-columns:1fr}}
+.vs2 figure{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;gap:6px;min-width:0}
+.vs2 svg{width:100%;height:auto;display:block}
+.vs2 figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center}
+.ideas svg{width:100%;height:auto;display:block;background:var(--soft);border-radius:10px}
+.ideas .num{font-family:var(--display);font-weight:800;color:var(--accent);font-size:1.1rem}
+
+/* lab */
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.tab{font-family:var(--display);font-weight:700;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer;transition:transform .15s}
+.tab:hover{transform:translateY(-1px)}
+.tab[aria-selected="true"],.tab[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.lab{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:18px;align-items:start}
+@media(max-width:760px){.lab{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:grid;gap:12px;min-width:0}
+.panel svg{width:100%;height:auto;display:block}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.step{border:1px solid var(--line);background:var(--soft);border-radius:8px;padding:6px 8px;font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;cursor:pointer;color:var(--muted);text-align:left;line-height:1.3}
+.step b{display:block;font-size:.8rem;color:var(--ink);font-family:var(--display);letter-spacing:0}
+.step[aria-current="step"]{border-color:var(--accent);background:var(--card)}
+.step[aria-current="step"] b{color:var(--accent)}
+.playbar{height:4px;border-radius:2px;background:var(--soft);overflow:hidden}
+.playbar i{display:block;height:100%;width:0;background:var(--accent)}
+.e{transition:transform .75s cubic-bezier(.4,0,.2,1);color:var(--ink)}
+.e.hot{color:var(--accent)}
+.bx{transition:transform .75s cubic-bezier(.4,0,.2,1)}
+.bx rect{transition:stroke .4s,fill .4s}
+.bx.shimmer rect{animation:shimmer 1.2s ease-out}
+@keyframes shimmer{0%{fill-opacity:.7}100%{fill-opacity:.18}}
+.lbl{transition:opacity .4s}
+#promo{stroke-dasharray:100;stroke-dashoffset:100}
+#promo.draw{animation:draw .9s .35s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.fade{animation:fadein .5s ease both}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.note{display:grid;gap:8px;min-width:0}
+.note p{color:var(--muted)}
+.cfgline{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}
+.labright{display:grid;gap:12px;min-width:0}
+.pi-ctrls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;font-size:.92rem}
+.pi-ctrls label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+@media(max-width:600px){.vs{grid-template-columns:1fr}}
+.vs .card ul{color:var(--muted);font-size:.95rem;display:grid;gap:4px}
+.vs .card h4{display:flex;align-items:center;gap:8px}
+.dotc{width:13px;height:13px;border-radius:50%;display:inline-block}
+
+/* mixer */
+.mixread{display:grid;gap:6px}
+.mixread .eq{font-family:var(--display);font-weight:800;font-size:1.35rem}
+
+/* predictor */
+.count{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.count div{background:var(--soft);border-radius:10px;padding:10px 12px;display:grid;gap:2px}
+.count small,.result small{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.count b{font-family:var(--display);font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums}
+.result{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;perspective:600px}
+.result div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:2px;animation:flip .55s cubic-bezier(.3,1.4,.5,1) backwards;min-width:0}
+.result div:nth-child(2){animation-delay:.08s}.result div:nth-child(3){animation-delay:.16s}
+@keyframes flip{from{transform:rotateX(85deg)}}
+.result b{font-family:var(--display);font-size:1.1rem}
+.result div.hy{border-color:var(--hyb)}
+.result div.hy b{color:var(--hyb);font-size:1.4rem}
+@media(max-width:520px){.count,.result{grid-template-columns:1fr 1fr}}
+
+/* order game + myths */
+.order{display:grid;gap:12px;position:relative}
+.ord-done{display:grid;gap:6px;padding-left:1.6em;min-height:10px}
+.ord-done li{background:color-mix(in srgb,var(--ok) 12%,var(--card));border:1px solid var(--ok);border-radius:8px;padding:8px 10px;animation:fadein .4s}
+.ord-pool{display:grid;gap:6px}
+.ord-pool button{text-align:left;font:inherit;font-size:.95rem;background:var(--card);color:var(--ink);border:1px dashed var(--muted);border-radius:8px;padding:8px 10px;cursor:pointer}
+.ord-pool button.no{animation:shake .45s;border-color:var(--bad)}
+.myths{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px}
+.myth{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;perspective:900px;text-align:left}
+.myth .in{display:grid;transition:transform .55s cubic-bezier(.3,1.2,.5,1);transform-style:preserve-3d;height:100%}
+.myth .fr,.myth .bk{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px;padding:14px;display:grid;gap:6px;align-content:start;border:1px solid var(--line)}
+.myth .fr{background:color-mix(in srgb,var(--bad) 10%,var(--card))}
+.myth .bk{background:color-mix(in srgb,var(--ok) 12%,var(--card));transform:rotateY(180deg)}
+.myth[aria-pressed="true"] .in{transform:rotateY(180deg)}
+.myth small{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.myth .fr small{color:var(--bad)}.myth .bk small{color:var(--ok)}
+
+/* pair counter */
+.pc{display:grid;gap:12px}
+.pcform{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:end}
+.pcform label{display:grid;gap:4px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pcform select{font:inherit;font-family:var(--mono);font-size:.95rem;text-transform:none;letter-spacing:0;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 8px}
+.pctable{width:100%;border-collapse:collapse;font-size:.92rem}
+.pctable td{padding:6px 10px;border-bottom:1px solid var(--line)}
+.pctable td:last-child{text-align:right;font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums;width:70px}
+.pctable tr.hl td{background:var(--soft)}
+.pctable tr.k td:last-child{color:var(--accent);font-size:1.05rem}
+.flash{animation:flashbg .7s}
+@keyframes flashbg{from{background:color-mix(in srgb,var(--s) 45%,var(--card))}}
+.shapeout{display:grid;gap:4px}
+.shapeout b{font-family:var(--display);font-size:1.3rem}
+
+/* tables */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table.t{border-collapse:collapse;width:100%;min-width:680px;font-size:.93rem}
+table.t th,table.t td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.t th{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+table.t tr:last-child td{border-bottom:none}
+table.t tbody tr{transition:background .2s}
+table.t tbody tr:hover{background:var(--soft)}
+td.hx{font-family:var(--display);font-weight:800;font-size:1.08rem}
+td.ico{width:92px}
+td.ico svg{width:80px;height:auto;display:block}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.shapes5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+@media(max-width:620px){.shapes5{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.shapes5 figure{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px;display:grid;gap:4px;text-align:center}
+.shapes5 svg{width:100%;height:auto}
+.shapes5 b{font-family:var(--display);font-size:.92rem}
+.shapes5 span{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+
+/* EN grid */
+.engrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;max-width:640px}
+.ecell{font:inherit;border:1px solid var(--line);border-radius:8px;padding:5px 2px;display:grid;justify-items:center;gap:0;cursor:pointer;color:var(--ink);transition:transform .15s;min-width:0}
+.ecell:hover{transform:translateY(-2px)}
+.ecell b{font-family:var(--display);font-size:1rem}
+.ecell span{font-family:var(--mono);font-size:.72rem}
+.ecell.hot{color:var(--paper)}
+.ecell.sel{outline:3px solid var(--ink);outline-offset:-3px}
+.ecell.empty{visibility:hidden}
+.enaxis{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:.72rem;color:var(--muted);max-width:640px}
+
+/* dipoles */
+.dip svg{max-width:420px;margin:0 auto}
+.dline{stroke-dasharray:1;stroke-dashoffset:1}
+.go-d .dline{animation:dl .7s ease-out forwards}
+.go-d .dnet{animation:dl .8s .7s ease-out forwards}
+@keyframes dl{to{stroke-dashoffset:0}}
+
+/* Part 0: electron addresses */
+.addrwrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center}
+@media(max-width:640px){.addrwrap{grid-template-columns:1fr}}
+.addr{display:flex;align-items:flex-start;font-family:var(--display);font-weight:800;font-size:5.5rem;line-height:1;padding:0 10px}
+.a1{color:var(--accent)}.a2{color:var(--p)}.a3{color:var(--sigma)}
+.addr .a3{font-size:.5em}
+.part3 .card{border-top:4px solid var(--line)}
+.part3 .card:nth-child(1){border-top-color:var(--accent)}.part3 .card:nth-child(2){border-top-color:var(--p)}.part3 .card:nth-child(3){border-top-color:var(--sigma)}
+.part3 .big{font-size:2rem}
+.hotel{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:760px){.hotel{grid-template-columns:1fr}}
+.hotel svg{width:100%;height:auto;display:block;background:var(--soft);border-radius:12px}
+.cfgout{font-family:var(--display);font-weight:800;font-size:2rem;display:flex;flex-wrap:wrap;gap:2px 14px;line-height:1.2}
+.cfgout sup{font-size:.6em}
+.readlist{display:grid;gap:4px;font-size:.95rem;color:var(--muted);padding-left:1.1em}
+.readlist b{font-family:var(--display)}
+footer{padding-top:30px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);margin-top:40px}
+.words{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px}
+.words div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.words b{font-family:var(--display)}
+.words p{color:var(--muted);font-size:.94rem}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}#promo{stroke-dashoffset:0}.dline{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="Chapter parts">
+  <div class="toc-in" id="tocIn">
+    <a href="#top">Start</a><a href="#p0" class="star">0 What is 1s 2s 2p?</a><a href="#p1">1 What is bonding</a><a href="#p2">2 Ionic</a><a href="#p3">3 Covalent</a><a href="#p4">4 Bond strength</a><a href="#p5" class="star">5 Hybridization ★</a><a href="#p6">6 Shapes</a><a href="#p7">7 Electronegativity</a><a href="#p8">8 Metallic</a><a href="#p9">9 Solid structures</a><a href="#p10">10 Final quiz</a><a href="#words">Word bank</a>
+  </div>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</nav>
+
+<div class="wrap">
+<header class="hero" id="top">
+  <div class="hero-text">
+    <p class="kicker">AS Chemistry · Chapter 3 · notes pages 59 to 92</p>
+    <h1><span class="glow">Bonding</span> and Structure</h1>
+    <p class="lede">Why do atoms stick together? Why is water bent but carbon dioxide straight? This page explains the whole chapter in plain words, with pictures that move. Hybridization, the part most students find hardest, gets the longest section, one small step at a time.</p>
+    <ol class="howto">
+      <li><b>Go in order.</b> Each part uses ideas from the part before.</li>
+      <li><b>Play with every picture.</b> Most of them move. Drag the 3D ones to spin them.</li>
+      <li><b>Answer each Quick check</b> before you move on. If you get one wrong, read that bit again.</li>
+    </ol>
+    <p class="cap">Tap any <button type="button" class="term" data-w="term">dotted word</button> to see what it means in simple words.</p>
+  </div>
+  <figure class="viz-fig">
+    <div class="viz r85" id="heroViz" role="img" aria-label="Rotating 3D model of methane with four sp3 hybrid orbitals overlapping hydrogen 1s orbitals"><span class="hint">Drag to rotate</span></div>
+    <figcaption>Methane, CH₄: the molecule Part 5 explains. Green lobes are hybrid orbitals, yellow balls are hydrogen orbitals, pink spots are bonds, dots are electrons.</figcaption>
+  </figure>
+</header>
+
+<!-- ============ PART 0 ============ -->
+<section class="part" id="p0">
+  <div class="sec-head"><p class="kicker">Part 0 · start here, before anything else</p><h2>What do 1s, 2s and 2p mean?</h2>
+  <p class="lede">You will see things like <b>1s² 2s² 2p²</b> all through this chapter. It looks like code, but it is just an <b>address</b>. It tells you where an atom's electrons live. Once you can read it, hybridization becomes much easier.</p></div>
+
+  <div class="sub"><h3><span class="n">0.1</span>An atom is like a small hotel</h3>
+    <div class="analogy"><span class="ic">Picture this</span><p>The <b>nucleus</b> is the reception desk in the middle. The <b>electrons</b> are the guests. The hotel has <b>floors</b> (floor 1, floor 2, floor 3...). Each floor has <b>rooms</b>. Every room has only <b>2 beds</b>, so a room holds at most 2 electrons. Guests always take the <b>lowest free floor</b> first, because it is closest to reception and needs the least energy.</p></div>
+    <div class="tablewrap"><table class="t" style="min-width:0">
+      <thead><tr><th>Hotel word</th><th>Chemistry word</th><th>What it means</th></tr></thead>
+      <tbody>
+        <tr><td>Floor</td><td><b>Shell</b> (1, 2, 3...)</td><td>How far from the nucleus. Higher number = further away = more energy.</td></tr>
+        <tr><td>Room</td><td><b>Orbital</b></td><td>A space for electrons. Holds at most 2.</td></tr>
+        <tr><td>Type of room</td><td><b>s</b> or <b>p</b></td><td>An <b>s</b> room is on its own (1 room). <b>p</b> rooms come in a set of 3.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">0.2</span>Reading one piece: 2p²</h3>
+    <div class="addrwrap">
+      <div class="addr" aria-label="2p squared"><span class="a1">2</span><span class="a2">p</span><span class="a3">2</span></div>
+      <div class="grid3 part3">
+        <div class="card"><span class="big a1">2</span><p><b>The big number is the floor (shell).</b> Here: floor 2.</p></div>
+        <div class="card"><span class="big a2">p</span><p><b>The letter is the type of room.</b> Here: the p rooms (there are 3 of them).</p></div>
+        <div class="card"><span class="big a3">²</span><p><b>The small raised number is how many electrons are there.</b> Here: 2 electrons.</p></div>
+      </div>
+    </div>
+    <p class="prose">So <b>2p²</b> just means: "on floor 2, in the p rooms, there are 2 electrons." And <b>1s² 2s² 2p²</b> is a list of all the electrons: 2 on floor 1 in the s room, 2 on floor 2 in the s room, and 2 on floor 2 in the p rooms. Add the small numbers: 2 + 2 + 2 = 6 electrons. That is carbon.</p>
+    <div class="grid3">
+      <div class="card"><h4>Floor 1</h4><p>Only an s room: <b>1s</b>.</p><p>Holds 2 electrons.</p></div>
+      <div class="card"><h4>Floor 2</h4><p>One s room (<b>2s</b>) and three p rooms (<b>2p</b>).</p><p>Holds 2 + 6 = <b>8</b> electrons. That is where the "octet" (8) comes from.</p></div>
+      <div class="card"><h4>Floor 3</h4><p>One s room (<b>3s</b>) and three p rooms (<b>3p</b>), and more (d rooms) you do not need yet.</p></div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">0.3</span>Three filling rules</h3>
+    <ol class="prose">
+      <li><b>How many electrons?</b> The same as the atomic number on the periodic table. Carbon is element 6, so it has 6 electrons.</li>
+      <li><b>Fill from the bottom.</b> The order is 1s, then 2s, then 2p, then 3s, then 3p. Each s takes up to 2. Each set of p takes up to 6.</li>
+      <li><b>In the p rooms, spread out first.</b> Put one electron in each p room before any room gets a second one. Like people on a bus who pick an empty double seat before sitting next to a stranger. Two electrons in one room spin opposite ways, drawn ↑↓.</li>
+    </ol>
+  </div>
+
+  <div class="sub"><h3><span class="n">0.4</span>Build any atom</h3>
+    <p class="prose">Pick an element, or drag the slider. Watch the electrons move in, one at a time, in the right order.</p>
+    <div class="stage">
+      <div class="chiprow" id="elPick" role="group" aria-label="Choose an element"></div>
+      <input type="range" id="zR" min="1" max="18" step="1" value="6" aria-label="Number of electrons" style="width:100%;accent-color:var(--accent)">
+      <div class="hotel">
+        <div id="hotelBox"><svg id="hotelSvg" viewBox="0 0 380 240" role="img" aria-label="Electron box diagram for the chosen element"></svg></div>
+        <div class="prose" id="cfgRead" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">0.5</span>Why this matters for bonding</h3>
+    <div class="grid2">
+      <div class="card"><h4>Only the top floor bonds</h4><p>The outer shell (the highest floor with electrons) is the only one used in bonding. For carbon that is floor 2: <b>2s² 2p²</b>. The <b>1s²</b> pair stays out of it. That is why the diagrams in Part 5 ignore 1s.</p></div>
+      <div class="card"><h4>Single electrons make bonds</h4><p>An electron alone in a room (one arrow, not two) can pair up with an electron from another atom. That pair is a bond. Carbon has 2 rooms with a single electron, which is the puzzle Part 5 solves.</p></div>
+    </div>
+  </div>
+  <div class="check" data-q="c0"></div>
+  <div class="check" data-q="c0b"></div>
+</section>
+
+<!-- ============ PART 1 ============ -->
+<section class="part" id="p1">
+  <div class="sec-head"><p class="kicker">Part 1 · notes page 60</p><h2>What is bonding?</h2>
+  <p class="lede">Bonding is what holds particles together. Every bond in this chapter is the same basic idea: something <b>negative</b> is pulled toward something <b>positive</b>. The three types differ only in <i>what</i> is pulled to <i>what</i>.</p></div>
+  <div class="grid3">
+    <div class="card"><canvas class="anim" id="cvIonic" role="img" aria-label="Animation: magnesium gives two electrons to oxygen, making Mg2+ and O2- ions that attract"></canvas><span class="tag">Ionic</span><h4>Electrons are passed over</h4><p>A metal atom gives electrons to a non-metal atom. That makes a positive <button type="button" class="term" data-w="ion">ion</button> and a negative ion.</p><p class="pull">pull: + ions ↔ − ions</p></div>
+    <div class="card"><canvas class="anim" id="cvCov" role="img" aria-label="Animation: two chlorine atoms each put one electron into a shared pair"></canvas><span class="tag">Covalent</span><h4>Electrons are shared</h4><p>Two non-metal atoms each put one electron into a <b>shared pair</b>.</p><p class="pull">pull: shared pair ↔ both nuclei</p></div>
+    <div class="card"><canvas class="anim" id="cvMet" role="img" aria-label="Animation: magnesium ions in a sea of moving electrons"></canvas><span class="tag">Metallic</span><h4>Electrons are set free</h4><p>Metal atoms let go of their outer electrons into a shared "sea" that flows around the ions.</p><p class="pull">pull: + metal ions ↔ sea of electrons</p></div>
+  </div>
+  <div class="rule"><b>Quick way to tell:</b><span>metal + non-metal → ionic</span><span>non-metal + non-metal → covalent</span><span>metal on its own → metallic</span></div>
+  <div class="check" data-q="c1"></div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="part" id="p2">
+  <div class="sec-head"><p class="kicker">Part 2 · notes pages 60 to 64</p><h2>Ionic bonding</h2>
+  <p class="lede">Ionic bonding is the electrostatic attraction between oppositely charged ions in a lattice. Below: how ions form, what charge they get, how to write formulas, and why ionic compounds behave the way they do.</p></div>
+
+  <div class="sub"><h3><span class="n">2.1</span>How ions form</h3>
+    <div class="two">
+      <div class="prose">
+        <p>Atoms are most stable with a <b>full outer shell</b>, like the noble gases (He, Ne, Ar). There are two ways to get one:</p>
+        <ul>
+          <li><b>Metals lose electrons.</b> They have only 1, 2 or 3 outer electrons, so giving them away is easier. Losing negative electrons leaves a <b>positive ion</b>.</li>
+          <li><b>Non-metals gain electrons.</b> They are only a few electrons short of a full shell, so taking a few more is easier. Gaining negative electrons makes a <b>negative ion</b>.</li>
+        </ul>
+        <p class="cap">Hydrogen is unusual. It normally forms H⁺, but it can also form the hydride ion H⁻.</p>
+      </div>
+      <div class="grid2">
+        <div class="card"><span class="tag">Metal</span><p><span class="cfg">Mg 1s² 2s² 2p⁶ 3s²</span></p><p>loses 2 electrons →</p><p><span class="cfg">Mg²⁺ 1s² 2s² 2p⁶</span></p><p>12 protons, 10 electrons. Charge = 12 − 10 = <b>2+</b></p></div>
+        <div class="card"><span class="tag">Non-metal</span><p><span class="cfg">O 1s² 2s² 2p⁴</span></p><p>gains 2 electrons →</p><p><span class="cfg">O²⁻ 1s² 2s² 2p⁶</span></p><p>8 protons, 10 electrons. Charge = 8 − 10 = <b>2−</b></p></div>
+      </div>
+    </div>
+    <p class="cap">Both ions end up with the same electron arrangement as neon.</p>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.2</span>Which charge does each element get?</h3>
+    <p class="prose">The group number tells you. Tap a group to see why.</p>
+    <div class="groups" id="ionTable" role="group" aria-label="Periodic table groups"></div>
+    <div class="card iondetail" id="ionDetail" aria-live="polite"></div>
+    <div class="grid3">
+      <div class="card"><h4>Learn these by heart</h4><div class="memo"><span>Ag⁺ silver</span><span>Zn²⁺ zinc</span><span>Pb²⁺ lead</span><span>Sn²⁺ tin</span></div><p>Transition metals can have more than one charge. The Roman numeral tells you which: <b>iron(II)</b> is Fe²⁺, <b>iron(III)</b> is Fe³⁺, <b>copper(II)</b> is Cu²⁺.</p></div>
+      <div class="card"><h4>Compound ions</h4><p>A small group of atoms, held together by covalent bonds, with one overall charge.</p><div class="memo"><span>NH₄⁺ ammonium</span><span>OH⁻ hydroxide</span><span>NO₃⁻ nitrate</span><span>CO₃²⁻ carbonate</span><span>SO₄²⁻ sulfate</span><span>PO₄³⁻ phosphate</span></div></div>
+      <div class="card"><h4>-ide or -ate?</h4><p><b>-ide</b> is just the element: nitride N³⁻, phosphide P³⁻, oxide O²⁻.</p><p><b>-ate</b> has oxygen in it too: nitrate NO₃⁻, phosphate PO₄³⁻.</p><p>Do not mix them up. Li₃N is lithium nitride, not nitrate.</p></div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.3</span>Writing a formula</h3>
+    <p class="prose">A compound has no overall charge. So the total positive charge must cancel the total negative charge exactly. Pick two ions and watch.</p>
+    <div class="stage fx" id="fx">
+      <div><p class="lab">Positive ion</p><div class="chiprow" id="fxC"></div></div>
+      <div><p class="lab">Negative ion</p><div class="chiprow" id="fxA"></div></div>
+      <div class="tokens" id="fxTok" aria-live="polite"></div>
+      <div class="balance" id="fxBal"></div>
+      <div class="formula" id="fxF"></div>
+      <p class="cap" id="fxWhy"></p>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.4</span>The giant ionic lattice</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r85" id="naclViz" role="img" aria-label="3D sodium chloride lattice"><span class="hint">Drag to rotate</span></div>
+        <div class="ctrls"><div class="grp"><button class="chip" type="button" id="naclBall" aria-pressed="true">Ball and stick</button><button class="chip" type="button" id="naclFill" aria-pressed="false">Space filling</button></div><button class="btn" type="button" id="naclAgain">Build again</button></div>
+      </figure>
+      <div class="prose">
+        <p>In a solid, ions do not pair up one to one. Millions of them stack in a regular 3D pattern called a <button type="button" class="term" data-w="lattice">giant ionic lattice</button>.</p>
+        <p>In sodium chloride, each <b>Na⁺</b> (orange, small) is surrounded by <b>6</b> <b>Cl⁻</b> (blue, large), and each Cl⁻ by 6 Na⁺. The glowing ions in the middle show this.</p>
+        <p>The ionic bond is the pull between each ion and <b>all</b> the opposite ions around it, in every direction.</p>
+        <div class="callout"><b>Careful in exams.</b> The sticks only help you see the pattern. They are not bonds. Press Space filling to see how the ions really pack together.</div>
+        <p class="cap">Not every ionic compound has this same pattern (page 63).</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.5</span>Properties of ionic compounds</h3>
+    <div class="grid4">
+      <div class="card"><h4>High melting point</h4><p>There are many strong attractions between ions. It takes a lot of energy to break them all.</p></div>
+      <div class="card"><h4>Conducts only when melted or dissolved</h4><p>Electricity needs charged particles that can move. In the solid, the ions are locked in place. Melted or dissolved, they are free to move.</p></div>
+      <div class="card"><h4>Brittle</h4><p>A knock shifts one layer. Now + sits next to + and − next to −. They repel and the crystal splits. Watch below.</p></div>
+      <div class="card"><h4>Usually dissolves in water</h4><p>Water can pull the ions apart. Ionic compounds usually do not dissolve in organic solvents.</p></div>
+    </div>
+    <canvas class="anim" id="hitIonic" role="img" aria-label="Animation: a force shifts a layer of ions so like charges line up, they repel and the crystal splits"></canvas>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.6</span>Ion size and bond strength</h3>
+    <div class="two">
+      <div class="prose">
+        <p><b>Positive ions are smaller than their atoms.</b> They lose their whole outer shell. The same number of protons now pulls on fewer electrons, so they are held closer.</p>
+        <p><b>Negative ions are bigger than their atoms.</b> They have extra electrons but the same protons. The pull is shared between more electrons, so each one is held less tightly.</p>
+        <p><b>Same electrons, more protons → smaller.</b> The six ions in the picture all have 10 electrons (like neon). Going from N³⁻ to Al³⁺ the number of protons rises, so the ions shrink.</p>
+        <p><b>Down a group, ions get bigger,</b> because each one has an extra shell of electrons.</p>
+      </div>
+      <figure class="svgbox" id="radiiBox"><svg id="radii" viewBox="0 0 480 200" role="img" aria-label="Ionic radii of N3-, O2-, F-, Na+, Mg2+, Al3+"></svg><figcaption class="cap">Circles drawn to scale. Approximate radii in pm; data books differ a little.</figcaption></figure>
+    </div>
+    <div class="callout good"><b>Stronger ionic bonding = smaller ions and bigger charges.</b> They get closer and pull harder. MgO (Mg²⁺ and O²⁻) melts at about 2850 °C. NaCl (Na⁺ and Cl⁻) melts at 801 °C.</div>
+  </div>
+  <div class="check" data-q="c2"></div>
+  <div class="check" data-q="c2b"></div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section class="part" id="p3">
+  <div class="sec-head"><p class="kicker">Part 3 · notes pages 65 to 68</p><h2>Covalent bonding</h2>
+  <p class="lede">When two non-metals meet, both want electrons, so neither gives any away. They share instead.</p></div>
+
+  <div class="sub"><h3><span class="n">3.1</span>Sharing a pair</h3>
+    <div class="prose">
+      <p>Each atom puts in one electron. The two electrons make a <b>shared pair</b>, and that shared pair is the <button type="button" class="term" data-w="covalent">covalent bond</button>.</p>
+      <p>Both nuclei (positive) pull on the shared pair (negative). That pull holds the two atoms together. A covalent bond is strong.</p>
+      <p>We only draw the outer electrons, in pairs. A <button type="button" class="term" data-w="bondpair">bonding pair</button> is shared between two atoms. A <button type="button" class="term" data-w="lonepair">lone pair</button> belongs to one atom and is not in a bond. Lone pairs matter a lot for shapes (Part 6).</p>
+    </div>
+    <div class="svgbox wide"><svg id="nh3ways" viewBox="0 0 600 210" role="img" aria-label="Ammonia drawn three ways: dot and cross, Lewis structure, line diagram"></svg></div>
+    <p class="cap">Ammonia, NH₃, three ways. In the dot and cross diagram, crosses are nitrogen's electrons and dots are hydrogen's. N has 3 bonding pairs and 1 lone pair.</p>
+  </div>
+
+  <div class="sub"><h3><span class="n">3.2</span>The octet rule and multiple bonds</h3>
+    <p class="prose">After bonding, most atoms have <b>8 electrons</b> in their outer shell, like a noble gas. This is the <b>octet rule</b>. Hydrogen is the exception: it only needs 2. Sometimes atoms share more than one pair:</p>
+    <div class="grid4 multi">
+      <div class="card"><span class="big">Cl–Cl</span><p><b>Single bond</b>: 1 shared pair</p></div>
+      <div class="card"><span class="big">O=O</span><p><b>Double bond</b>: 2 shared pairs</p></div>
+      <div class="card"><span class="big">N≡N</span><p><b>Triple bond</b>: 3 shared pairs</p></div>
+      <div class="card"><span class="big">O=C=O</span><p>CO₂: two double bonds. C ends with 8, each O with 8.</p></div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">3.3</span>When the octet rule breaks</h3>
+    <div class="grid2">
+      <div class="card"><h4>Fewer than 8</h4><p>Be, B and Al can end up short. In <b>BCl₃</b> boron has only 6 outer electrons. In <b>BeCl₂</b> beryllium has only 4. They often fix this later with a dative bond (3.5).</p></div>
+      <div class="card"><h4>More than 8: expanding the octet</h4><p>Atoms in period 3 and below (P, S, Cl and others) can hold more than 8. In <b>PF₅</b> phosphorus has 10. In <b>SF₆</b> sulfur has 12. They can do this because they have empty d orbitals.</p><p>Period 2 atoms (C, N, O) <b>cannot</b>: there are no 2d orbitals.</p></div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">3.4</span>Normal bonding patterns</h3>
+    <p class="prose">Use this to check any structure you draw. Each atom usually makes this many bonds:</p>
+    <div class="tablewrap"><table class="t">
+      <thead><tr><th>Atom</th><th>Bonds</th><th>Lone pairs</th><th>Ways to make the bonds</th></tr></thead>
+      <tbody>
+        <tr><td class="hx">C</td><td class="num">4</td><td class="num">0</td><td>4 single; or 1 double + 2 single; or 2 double; or 1 triple + 1 single</td></tr>
+        <tr><td class="hx">N, P</td><td class="num">3</td><td class="num">1</td><td>3 single; or 1 double + 1 single; or 1 triple</td></tr>
+        <tr><td class="hx">O, S</td><td class="num">2</td><td class="num">2</td><td>2 single; or 1 double</td></tr>
+        <tr><td class="hx">F, Cl, Br, I</td><td class="num">1</td><td class="num">3</td><td>1 single</td></tr>
+        <tr><td class="hx">H</td><td class="num">1</td><td class="num">0</td><td>1 single</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">3.5</span>Dative covalent bonds</h3>
+    <div class="two">
+      <div class="prose">
+        <p>In a normal covalent bond each atom gives one electron. In a <button type="button" class="term" data-w="dative">dative covalent bond</button> (also called a co-ordinate bond) <b>both</b> electrons come from the <b>same</b> atom, from one of its lone pairs.</p>
+        <ul><li>The giver needs a <b>lone pair</b>.</li><li>The receiver needs an <b>empty space</b> in its outer shell.</li><li>Draw it as an <b>arrow</b>, pointing away from the atom that gives the pair.</li></ul>
+        <p>Once it has formed, a dative bond is exactly the same as any other covalent bond. In NH₄⁺ you cannot tell which N–H bond was dative.</p>
+      </div>
+      <canvas class="anim" id="cvDative" role="img" aria-label="Animation: ammonia's lone pair forms a dative bond to H+, making the ammonium ion"></canvas>
+    </div>
+    <div class="grid3">
+      <div class="card"><h4>H₃O⁺ and NH₄⁺</h4><p>H₂O or NH₃ gives a lone pair to H⁺, which has no electrons at all.</p></div>
+      <div class="card"><h4>NH₃ → BCl₃</h4><p>N gives its lone pair to boron, which only had 6 outer electrons. Now boron has 8.</p></div>
+      <div class="card"><h4>Al₂Cl₆</h4><p>Two AlCl₃ molecules join. A Cl on each gives a lone pair to the other Al: two dative bonds.</p></div>
+      <div class="card"><h4>CO</h4><p>Carbon monoxide has a triple bond, C≡O. One of the three bonds is dative, from O to C.</p></div>
+      <div class="card"><h4>BeCl₂ in the solid</h4><p>Cl lone pairs give to Be atoms of the next molecule. This makes a long chain (a polymer).</p></div>
+      <div class="card"><h4>NO₃⁻</h4><p>The nitrate ion has a double bond, a single bond and a dative bond. They all end up equal in strength.</p></div>
+    </div>
+  </div>
+  <div class="check" data-q="c3"></div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section class="part" id="p4">
+  <div class="sec-head"><p class="kicker">Part 4 · notes page 69</p><h2>Bond strength: energy and length</h2></div>
+  <div class="grid2">
+    <div class="card"><h4>Bond energy</h4><p>The energy needed to break one mole of a bond in gas molecules into gas atoms. <b>Bigger number = stronger bond.</b></p></div>
+    <div class="card"><h4>Bond length</h4><p>The distance between the two nuclei. <b>Shorter bonds are stronger,</b> because the shared pair is closer to both nuclei and is pulled harder.</p></div>
+  </div>
+  <div class="sub"><h3><span class="n">4.1</span>Watch two hydrogen atoms make a bond</h3>
+    <p class="prose">A bond forms when two orbitals <button type="button" class="term" data-w="overlap">overlap</button>. The graph tracks the energy as the atoms move. Let it play, or drag the slider yourself.</p>
+    <div class="stage">
+      <canvas id="cvH2" role="img" aria-label="Two hydrogen atoms approaching, with a graph of energy against distance between the nuclei"></canvas>
+      <div class="ctrls">
+        <button class="btn primary" id="h2Play" type="button">Pause</button>
+        <div class="slider" style="flex:1 1 220px"><label for="h2R" class="cap">Distance between the nuclei</label><input type="range" id="h2R" min="30" max="250" step="1" value="250"></div>
+        <span class="readout" id="h2Read">r = 250 pm · E = 0 kJ mol⁻¹</span>
+      </div>
+      <p class="callout warn" id="h2Cap" aria-live="polite">Far apart. The 1s orbitals do not overlap yet, so there is no bond.</p>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">4.2</span>Double and triple bonds are shorter and stronger</h3>
+    <div class="two">
+      <figure class="svgbox" id="bondBox"><svg id="bondChart" viewBox="0 0 520 170" role="img" aria-label="Bar chart of carbon-carbon bond lengths and bond energies"></svg><figcaption class="cap">Typical average values.</figcaption></figure>
+      <div class="prose"><p>A double or triple bond has more electrons between the two nuclei. More negative charge between them means a <b>stronger pull</b>, so the atoms sit <b>closer together</b>.</p><p>But notice: C=C is not twice as strong as C–C. The second bond (the π bond, Part 5) is weaker than the first.</p></div>
+    </div>
+  </div>
+  <div class="check" data-q="c4"></div>
+</section>
+
+<!-- ============ PART 5 ============ -->
+<section class="part" id="p5">
+  <div class="sec-head"><p class="kicker">Part 5 · notes pages 69 to 71 · focus topic</p><h2>Hybridization, step by step</h2></div>
+  <div class="focus">
+    <p class="badge">★ Take this part slowly</p>
+    <p>Hybridization sounds scary, but it is only <b>three small steps</b>. Each step below has a picture, an everyday comparison and a quick check. Do not move on until the check makes sense.</p>
+    <div class="steps3"><span>1 Promote</span><i>→</i><span>2 Mix</span><i>→</i><span>3 Spread out</span></div>
+  </div>
+
+  <div class="sub" id="ideas"><h3><span class="n">5.1</span>Four ideas you need first</h3>
+    <p class="prose">Hybridization is built on these. If 1s, 2s and 2p still look strange, go back to <a href="#p0">Part 0</a> first.</p>
+    <div class="grid4 ideas" id="ideaCards"></div>
+    <div class="check" data-q="c5a"></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.2</span>The problem with carbon</h3>
+    <div class="two">
+      <div class="prose">
+        <p>Use idea ④ on carbon. Carbon is <span class="cfg">1s² 2s² 2p²</span>. In its box diagram the 2s pair is full, and only the <b>two</b> 2p electrons are single. So carbon should make only <b>2 bonds</b>, at 90° (p orbitals sit at right angles).</p>
+        <p>But real methane is CH₄. It has <b>4 bonds</b>, all exactly the same, at <b>109.5°</b>.</p>
+        <p>So the simple idea gives the wrong answer for carbon. Hybridization fixes it.</p>
+        <div class="callout warn"><b>Is it real?</b> Hybridization is a model: a way of describing orbitals that matches what we measure. Atoms do not "decide" anything. But the model predicts shapes and angles correctly, which is why you learn it.</div>
+      </div>
+      <div class="vs2" id="puzzleFig">
+        <figure><figcaption>The simple idea predicts</figcaption><svg viewBox="-140 -110 280 220" id="pzL" role="img" aria-label="Two p orbitals at 90 degrees bonding to two hydrogens"></svg></figure>
+        <figure><figcaption>Experiments measure</figcaption><svg viewBox="-140 -110 280 220" id="pzR" role="img" aria-label="Tetrahedral methane with four identical bonds at 109.5 degrees"></svg></figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.3</span>Step 1 · Promote</h3>
+    <div class="two">
+      <canvas class="anim" id="cvPromo" role="img" aria-label="Animation: one 2s electron jumps up into the empty 2p box, giving four unpaired electrons"></canvas>
+      <div class="what">
+        <p><b>What happens.</b> One of the two 2s electrons jumps up into the empty 2p box. This is called <button type="button" class="term" data-w="promotion">promotion</button>.</p>
+        <div class="analogy"><span class="ic">Like this</span><p>Two people share a room downstairs, and one room upstairs is empty. One person moves upstairs. Now everybody has a room to themselves, and each can pair up with a visitor.</p></div>
+        <p><b>Does it cost energy?</b> A little, because 2p is slightly higher than 2s. But now carbon has <b>4 single electrons</b>, so it can make <b>4 bonds instead of 2</b>. Every bond releases energy, so the deal pays off.</p>
+        <p><b>Result:</b> <span class="cfg">1s² 2s¹ 2p³</span></p>
+      </div>
+    </div>
+    <div class="check" data-q="c5b"></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.4</span>Step 2 · Mix</h3>
+    <div class="what prose">
+      <p><b>What happens.</b> The 2s orbital and some of the 2p orbitals blend together. They make brand-new orbitals that are all exactly the same. These are <button type="button" class="term" data-w="hybrid">hybrid orbitals</button>. "Hybridize" just means "mix".</p>
+    </div>
+    <div class="analogy"><span class="ic">Like this</span><p>Mixing paint. One tin of yellow (the s orbital) plus three tins of blue (the p orbitals) makes four tins of the same green. You cannot tell which tin was yellow any more. All four greens are identical. Try it: choose how many p orbitals go in.</p></div>
+    <div class="stage">
+      <div class="chiprow" id="mixBtns" role="group" aria-label="How many p orbitals to mix">
+        <button class="chip" type="button" data-n="1" aria-pressed="false">1 s + 1 p</button>
+        <button class="chip" type="button" data-n="2" aria-pressed="false">1 s + 2 p</button>
+        <button class="chip" type="button" data-n="3" aria-pressed="true">1 s + 3 p</button>
+      </div>
+      <canvas id="cvMix" role="img" aria-label="Animation: tins of s and p paint pour into a bowl and come out as identical hybrid tins"></canvas>
+      <div class="mixread" id="mixRead" aria-live="polite"></div>
+    </div>
+    <div class="two">
+      <div class="prose">
+        <p><b>Reading the name.</b> The name is the recipe. <b>sp³</b> means s¹p³: one s and three p. The small number counts the p orbitals that went in. Add 1 for the s and you get how many hybrids come out.</p>
+        <p><b>Orbitals in = orbitals out.</b> Mix 4, get 4. Mix 3, get 3. Mix 2, get 2.</p>
+        <p><b>Shape of a hybrid:</b> one big lobe and one small lobe. The big lobe points to where the bond will be.</p>
+      </div>
+      <div class="tablewrap"><table class="t" style="min-width:0">
+        <thead><tr><th>Name</th><th>Recipe</th><th>Hybrids</th><th>p left over</th></tr></thead>
+        <tbody>
+          <tr><td class="hx">sp³</td><td>1 s + 3 p</td><td class="num">4</td><td class="num">0</td></tr>
+          <tr><td class="hx">sp²</td><td>1 s + 2 p</td><td class="num">3</td><td class="num">1</td></tr>
+          <tr><td class="hx">sp</td><td>1 s + 1 p</td><td class="num">2</td><td class="num">2</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="check" data-q="c5c"></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.5</span>Step 3 · Spread out</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r80" id="balViz" role="img" aria-label="Hybrid orbitals pushing apart into their final shape"><span class="hint">Drag to rotate</span></div>
+        <div class="chiprow" id="balBtns" role="group" aria-label="Number of hybrid orbitals">
+          <button class="chip" type="button" data-n="2" aria-pressed="false">2 hybrids (sp)</button>
+          <button class="chip" type="button" data-n="3" aria-pressed="false">3 hybrids (sp²)</button>
+          <button class="chip" type="button" data-n="4" aria-pressed="true">4 hybrids (sp³)</button>
+        </div>
+      </figure>
+      <div class="what">
+        <p><b>What happens.</b> Each hybrid orbital holds negative electrons, so the hybrids <b>push each other away</b>. They spread out until they are as far apart as possible.</p>
+        <div class="analogy"><span class="ic">Like this</span><p>Tie some balloons together by their knots. They push apart and settle into exactly these shapes. Press a button to watch the lobes start bunched up and push apart.</p></div>
+        <ul>
+          <li><b>2 hybrids</b> → straight line, <b>180°</b> (linear)</li>
+          <li><b>3 hybrids</b> → flat triangle, <b>120°</b> (trigonal planar)</li>
+          <li><b>4 hybrids</b> → tetrahedron, <b>109.5°</b> (tetrahedral)</li>
+        </ul>
+        <p>Then each big lobe overlaps <b>head-on</b> with an orbital from another atom. That makes a <button type="button" class="term" data-w="sigma">σ (sigma) bond</button>.</p>
+      </div>
+    </div>
+    <div class="check" data-q="c5d"></div>
+  </div>
+
+  <div class="sub" id="lab"><h3><span class="n">5.6</span>Watch all three steps together</h3>
+    <p class="prose">Pick an atom and press <b>Play all</b>, or step through yourself. The left side is the box diagram from page 70. The right side shows the same step in 3D.</p>
+    <div class="tabs" role="tablist" aria-label="Choose an atom">
+      <button class="tab" role="tab" data-atom="sp3" aria-selected="true">sp³ · C in CH₄</button>
+      <button class="tab" role="tab" data-atom="sp2" aria-selected="false">sp² · B in BCl₃</button>
+      <button class="tab" role="tab" data-atom="sp" aria-selected="false">sp · Be in BeCl₂</button>
+      <button class="tab" role="tab" data-atom="sp2c" aria-selected="false">sp² · C in C₂H₄</button>
+    </div>
+    <div class="lab">
+      <div class="panel">
+        <div class="steps" id="steps"></div>
+        <div class="playbar" aria-hidden="true"><i id="playbar"></i></div>
+        <svg id="diag" viewBox="0 0 340 232" role="img" aria-label="Electron box diagram showing promotion and hybridization"></svg>
+        <div class="cfgline"><span>Configuration</span><span class="cfg" id="cfg"></span><span id="unp"></span></div>
+        <div class="ctrls"><button class="btn primary" id="labPlay" type="button" aria-pressed="false">Play all</button><div class="grp"><button class="btn" id="back" type="button">Back</button><button class="btn" id="next" type="button">Next</button></div></div>
+      </div>
+      <div class="labright">
+        <div class="viz r80" id="labViz" role="img" aria-label="3D orbitals for the selected step"><span class="hint">Drag to rotate</span></div>
+        <div class="note" id="note" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub" id="pi"><h3><span class="n">5.7</span>Leftover p orbitals make π bonds</h3>
+    <p class="prose">In sp² and sp atoms, some p orbitals were <b>not</b> mixed. They stick out at right angles. When two of them sit side by side, they overlap <b>sideways</b> and make a <button type="button" class="term" data-w="pi">π (pi) bond</button>. This is how double and triple bonds form.</p>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r70" id="piViz" role="img" aria-label="3D ethene showing sigma bonds and the pi bond"><span class="hint">Drag to rotate</span></div>
+        <div class="pi-ctrls"><label><input type="checkbox" id="showSig" checked> σ framework</label><label><input type="checkbox" id="showP" checked> 2p orbitals</label><label><input type="checkbox" id="showPi" checked> π bond</label></div>
+        <div class="slider"><label for="twist" class="cap">Twist the right-hand CH₂ group around the C=C axis</label><input type="range" id="twist" min="0" max="90" step="1" value="0"><div class="readout"><span id="twistDeg">θ = 0°</span><span id="twistOv">π overlap ∝ cos θ = 1.00</span><span id="twistMsg"></span></div></div>
+        <div class="ctrls"><button class="btn primary" id="piAuto" type="button">Auto-twist</button><button class="btn" id="piReplay" type="button">Replay bond forming</button></div>
+      </figure>
+      <div class="prose">
+        <p><b>Ethene, C₂H₄ (page 71).</b> Each carbon is sp². Press <b>Replay</b>: two CH₂ pieces move in, their sp² lobes meet head-on (the σ bond), then the two upright p orbitals overlap sideways (the π bond). The π bond is a cloud <b>above and below</b> the molecule.</p>
+        <p><b>Now twist it.</b> As one end turns, the p orbitals stop being side by side, so the overlap shrinks. At 90° the π bond is broken. That costs about 260 kJ mol⁻¹, so at room temperature a C=C bond does not rotate. A single bond (σ only) rotates freely.</p>
+        <p><b>Ethyne, C₂H₂.</b> Each carbon is sp, with <b>two</b> leftover p orbitals. They make <b>two</b> π bonds, so the carbons share a triple bond: 1σ + 2π.</p>
+        <div class="vs">
+          <div class="card"><h4><span class="dotc" style="background:var(--sigma)"></span>σ bond</h4><ul><li>Head-on overlap</li><li>Electrons on the line between nuclei</li><li>Stronger</li><li>Allows rotation</li><li>Every single bond is one σ</li></ul></div>
+          <div class="card"><h4><span class="dotc" style="background:var(--pi)"></span>π bond</h4><ul><li>Sideways overlap of two p orbitals</li><li>Electrons above and below the line</li><li>Weaker</li><li>Stops rotation</li><li>Double = 1σ + 1π, triple = 1σ + 2π</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub" id="predict"><h3><span class="n">5.8</span>The shortcut: count the regions</h3>
+    <div class="rule"><b>Count the regions around the central atom.</b><span>2 → sp → linear 180°</span><span>3 → sp² → trigonal planar 120°</span><span>4 → sp³ → tetrahedral 109.5°</span></div>
+    <p class="prose">A <button type="button" class="term" data-w="region">region</button> is a single bond, a double bond, a triple bond, or a lone pair. <b>Each counts as one.</b> Lone pairs count. Double and triple bonds count only once. Try some molecules:</p>
+    <div class="chiprow" id="mols" role="group" aria-label="Choose a molecule"></div>
+    <div class="two">
+      <div class="panel" id="predOut"></div>
+      <figure class="viz-fig"><div class="viz r85" id="predViz" role="img" aria-label="3D shape of the selected molecule"><span class="hint">Drag to rotate</span></div><figcaption id="predCap"></figcaption></figure>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.9</span>Writing it in an exam</h3>
+    <p class="prose">Examiners want the steps in order. Tap the sentences in the right order to build a full-mark answer.</p>
+    <div class="stage order" id="order">
+      <div class="tabs" id="ordTabs" role="group" aria-label="Choose a question"></div>
+      <p class="qt" id="ordQ"></p>
+      <ol class="ord-done" id="ordDone"></ol>
+      <div class="ord-pool" id="ordPool"></div>
+      <p class="fb" id="ordFb" hidden></p>
+      <div><button class="btn" type="button" id="ordReset">Shuffle and try again</button></div>
+    </div>
+  </div>
+
+  <div class="sub"><h3><span class="n">5.10</span>Common mistakes</h3>
+    <p class="prose">Each card shows a mistake students often make. Tap it to see the truth.</p>
+    <div class="myths" id="myths"></div>
+    <div class="check" data-q="c5e"></div>
+    <div class="check" data-q="c5f"></div>
+  </div>
+</section>
+
+<!-- ============ PART 6 ============ -->
+<section class="part" id="p6">
+  <div class="sec-head"><p class="kicker">Part 6 · notes pages 74 to 81</p><h2>Shapes of molecules</h2>
+  <p class="lede">Electron pairs are all negative, so they repel each other. Around the central atom they spread out as far apart as possible. So the shape depends on how many pairs there are, both bonding pairs and lone pairs.</p></div>
+  <div class="sub"><h3><span class="n">6.1</span>The five basic shapes</h3>
+    <div class="shapes5" id="shapes5"></div>
+    <div class="callout">This is the same idea as step 3 of hybridization. For 2, 3 and 4 pairs you get exactly the same shapes. Shapes with 5 and 6 pairs need an expanded octet, so only atoms from period 3 down can make them.</div>
+  </div>
+  <div class="sub"><h3><span class="n">6.2</span>Count the pairs (the table method)</h3>
+    <p class="prose">This is the table from page 75. It works for molecules with single bonds. Pick an example, or build your own.</p>
+    <div class="two">
+      <div class="stage pc">
+        <div class="chiprow" id="pcPre" role="group" aria-label="Example molecules"></div>
+        <div class="pcform">
+          <label for="pcAtom">Central atom<select id="pcAtom"></select></label>
+          <label for="pcN">Atoms bonded<select id="pcN"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></label>
+          <label for="pcLig">Bonded atom<select id="pcLig"><option>H</option><option>F</option><option>Cl</option><option>Br</option><option>I</option></select></label>
+          <label for="pcQ">Charge<select id="pcQ"><option value="-2">2−</option><option value="-1">1−</option><option value="0" selected>none</option><option value="1">1+</option><option value="2">2+</option></select></label>
+        </div>
+        <table class="pctable" id="pcTable"></table>
+        <div class="shapeout" id="pcOut" aria-live="polite"></div>
+      </div>
+      <figure class="viz-fig"><div class="viz r85" id="pcViz" role="img" aria-label="3D shape from the pair count"><span class="hint">Drag to rotate</span></div><figcaption class="cap">Purple lobes are lone pairs. Green lobes are bonding pairs.</figcaption></figure>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">6.3</span>Lone pairs push harder</h3>
+    <div class="two">
+      <div class="prose">
+        <p>A lone pair is held by only <b>one</b> nucleus, so it is fatter and sits closer to the central atom. It pushes harder than a bonding pair.</p>
+        <p>That squeezes the bonds closer together. Each lone pair makes the bond angle about <b>2.5° smaller</b>.</p>
+        <p class="cap">CH₄ 109.5° → NH₃ 107° → H₂O 104.5°. All three have 4 pairs, so they start from a tetrahedron.</p>
+      </div>
+      <div class="vs2" id="squeeze" style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">6.4</span>How to explain a shape in an exam</h3>
+    <div class="two">
+      <ol class="prose">
+        <li>State the number of <b>bonding pairs</b> and <b>lone pairs</b>.</li>
+        <li>Say that electron pairs <b>repel</b> and get as far apart as possible.</li>
+        <li>If there are no lone pairs: the pairs repel <b>equally</b>.</li>
+        <li>If there are lone pairs: <b>lone pairs repel more</b> than bonding pairs.</li>
+        <li>State the <b>shape</b> and the <b>bond angle</b>.</li>
+      </ol>
+      <div class="card"><span class="tag">Model answer · NH₃</span><p>N has 3 bonding pairs and 1 lone pair. Electron pairs repel and get as far apart as possible. The lone pair repels more than the bonding pairs, so it pushes the N–H bonds closer together. The shape is <b>trigonal pyramidal</b> with a bond angle of <b>107°</b>.</p></div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">6.5</span>Double and triple bonds count as one</h3>
+    <div class="grid3">
+      <div class="card"><h4>One region each</h4><p>For shape, a double or triple bond acts like a single bond. It is one region of negative charge. CO₂ (O=C=O) has 2 regions, so it is <b>linear</b>, like BeCl₂.</p></div>
+      <div class="card"><h4>Draw it first</h4><p>The table method struggles with double bonds. Draw the dot and cross diagram first. In a <b>neutral</b> molecule, oxygens are usually double bonded to the central atom. In a <b>negative ion</b>, the extra electrons sit on oxygens, which are then single bonded.</p></div>
+      <div class="card"><h4>Examples</h4><p><b>SO₄²⁻</b>: 2 S=O and 2 S–O⁻, 4 regions, no lone pairs → tetrahedral.</p><p><b>NO₃⁻, CO₃²⁻</b>: 3 regions → trigonal planar.</p></div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">6.6</span>Summary of common shapes (page 79)</h3>
+    <div class="tablewrap"><table class="t" id="shapeTable">
+      <thead><tr><th>Shape</th><th>Name</th><th>Bonding pairs</th><th>Lone pairs</th><th>Angle</th><th>Examples</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+  <div class="check" data-q="c6"></div>
+  <div class="check" data-q="c6b"></div>
+</section>
+
+<!-- ============ PART 7 ============ -->
+<section class="part" id="p7">
+  <div class="sec-head"><p class="kicker">Part 7 · notes pages 84 to 85</p><h2>Electronegativity and polarity</h2>
+  <p class="lede">Atoms in a covalent bond share a pair of electrons, but not always equally. Think of a tug of war over the shared pair.</p></div>
+  <div class="sub"><h3><span class="n">7.1</span>What electronegativity means</h3>
+    <div class="two">
+      <div class="prose">
+        <div class="callout"><b>Electronegativity</b> is how strongly an atom in a covalent bond pulls the shared electrons toward itself.</div>
+        <p><b>Fluorine</b> is the strongest puller (4.0). F, O, N and Cl are the most electronegative atoms.</p>
+        <p><b>Across a period it goes up.</b> More protons pull on the same shell, and the atom gets smaller, so the shared electrons are pulled harder.</p>
+        <p><b>Down a group it goes down.</b> The outer electrons are further from the nucleus, and more inner shells shield them.</p>
+      </div>
+      <div class="stage">
+        <div class="enaxis"><span>Group 1</span><span>increases across →</span><span>Group 7</span></div>
+        <div class="engrid" id="enGrid" role="group" aria-label="Electronegativity values"></div>
+        <p class="cap">Darker = pulls harder. Values go down each column. Tap two elements to set up the tug of war below.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">7.2</span>Tug of war: polar bonds</h3>
+    <div class="stage">
+      <div class="chiprow" id="tugPre" role="group" aria-label="Bond examples"></div>
+      <canvas id="cvTug" role="img" aria-label="Two atoms pulling on a shared electron pair"></canvas>
+      <p class="callout" id="tugMsg" aria-live="polite"></p>
+    </div>
+    <p class="prose">If both atoms pull equally (H–H, Cl–Cl), the bond is <b>non-polar</b>. If one pulls harder, the shared pair sits closer to it. That end gets a small negative charge, <b>δ−</b>, and the other end <b>δ+</b>. This is a <b>polar covalent bond</b>, or a <button type="button" class="term" data-w="dipole">dipole</button>. δ just means "a little bit". If the difference is very big, the electron is pulled right over and you get ions instead.</p>
+  </div>
+  <div class="sub"><h3><span class="n">7.3</span>Polar and non-polar molecules</h3>
+    <div class="two">
+      <div class="prose">
+        <p>A molecule can have polar bonds and still be <b>non-polar overall</b>. If the shape is symmetrical and all the bonds are the same, the pulls cancel, like a tug of war with equal teams on every side.</p>
+        <p>If the molecule is <b>not</b> symmetrical (different bonds, or lone pairs on the central atom), the pulls do not cancel. The molecule is <b>polar</b>.</p>
+        <div class="chiprow" id="dipPre" role="group" aria-label="Choose a molecule"></div>
+        <p class="callout" id="dipMsg" aria-live="polite"></p>
+      </div>
+      <figure class="svgbox dip"><svg id="dipSvg" viewBox="-160 -120 320 240" role="img" aria-label="Bond dipoles and the overall dipole of the selected molecule"></svg><figcaption class="cap">Small blue arrows: each bond's pull, pointing to the δ− end. Big pink arrow: the overall pull.</figcaption></figure>
+    </div>
+  </div>
+  <div class="check" data-q="c7"></div>
+</section>
+
+<!-- ============ PART 8 ============ -->
+<section class="part" id="p8">
+  <div class="sec-head"><p class="kicker">Part 8 · notes pages 82 to 83</p><h2>Metallic bonding</h2>
+  <p class="lede">In a metal, each atom lets go of its outer electrons. The atoms become positive ions packed in a giant lattice. The freed electrons are <button type="button" class="term" data-w="delocalized">delocalized</button>: they belong to no single atom and move through the whole metal, like a sea.</p></div>
+  <div class="callout"><b>Metallic bonding</b> is the electrostatic attraction between the positive metal ions and the delocalized electrons.</div>
+  <div class="sub"><h3><span class="n">8.1</span>What makes it stronger?</h3>
+    <div class="two">
+      <div class="stage">
+        <div class="ctrls"><div class="chiprow" id="metPick" role="group" aria-label="Choose a metal"><button class="chip" type="button" data-m="Na" aria-pressed="false">Sodium</button><button class="chip" type="button" data-m="Mg" aria-pressed="true">Magnesium</button><button class="chip" type="button" data-m="Al" aria-pressed="false">Aluminium</button></div><button class="btn" type="button" id="metVolt" aria-pressed="false">Connect a battery</button></div>
+        <canvas id="cvMetal" role="img" aria-label="Metal ions in a sea of delocalized electrons"></canvas>
+        <div class="readout" id="metRead"></div>
+      </div>
+      <div class="prose">
+        <ol><li><b>More protons</b> in the nucleus pull harder.</li><li><b>More delocalized electrons</b> per atom: more negative charge in the sea.</li><li><b>Smaller ions</b> (with a bigger charge) let the electrons get closer.</li></ol>
+        <p>Sodium gives 1 electron per atom. Magnesium gives 2 and its ion is smaller. So magnesium has stronger metallic bonding and a much higher melting point. Aluminium gives 3, so its boiling point is higher still.</p>
+        <p>Press <b>Connect a battery</b>: the delocalized electrons drift toward the positive end. That flow is an electric current.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">8.2</span>Properties of metals</h3>
+    <div class="grid3">
+      <div class="card"><h4>High melting point</h4><p>The attraction between the ions and the electron sea is strong. It takes a lot of energy to break.</p></div>
+      <div class="card"><h4>Conduct electricity</h4><p>The delocalized electrons can move through the whole structure in any direction.</p></div>
+      <div class="card"><h4>Conduct heat</h4><p>Fast-moving electrons bump into slower ones and pass their energy along.</p></div>
+      <div class="card"><h4>Malleable and ductile</h4><p>Malleable: can be hammered into shape. Ductile: can be pulled into wires. All the ions are the same, so layers slide over each other and the sea still holds them. Watch below.</p></div>
+      <div class="card"><h4>Shiny</h4><p>The delocalized electrons reflect light.</p></div>
+      <div class="card"><h4>Compare with ionic</h4><p>Hit an ionic crystal and like charges meet, so it shatters (2.5). Hit a metal and it bends.</p></div>
+    </div>
+    <canvas class="anim" id="hitMetal" role="img" aria-label="Animation: a force slides a layer of metal ions, and the electron sea keeps holding them"></canvas>
+  </div>
+  <div class="check" data-q="c8"></div>
+</section>
+
+<!-- ============ PART 9 ============ -->
+<section class="part" id="p9">
+  <div class="sec-head"><p class="kicker">Part 9 · notes pages 87 to 91</p><h2>Solid structures</h2>
+  <p class="lede">Every solid is built in one of four ways. What the particles are, and what holds them, decides the properties.</p></div>
+  <div class="tablewrap"><table class="t">
+    <thead><tr><th>Type</th><th>Particles</th><th>Held together by</th><th>Melting point</th><th>Conducts?</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td class="hx">Ionic</td><td>+ and − ions</td><td>attraction between opposite ions</td><td>high</td><td>only melted or dissolved</td><td>NaCl, MgO</td></tr>
+      <tr><td class="hx">Metallic</td><td>+ ions and delocalized electrons</td><td>ions ↔ electron sea</td><td>usually high</td><td>yes</td><td>Na, Mg, Cu</td></tr>
+      <tr><td class="hx">Molecular</td><td>small molecules</td><td>weak forces between molecules</td><td>low</td><td>no</td><td>I₂, ice</td></tr>
+      <tr><td class="hx">Macromolecular</td><td>atoms</td><td>strong covalent bonds all through</td><td>very high</td><td>no (except graphite, graphene)</td><td>diamond, graphite, SiO₂</td></tr>
+    </tbody>
+  </table></div>
+  <div class="sub"><h3><span class="n">9.1</span>See them in 3D</h3>
+    <div class="tabs" id="strTabs" role="group" aria-label="Choose a structure"></div>
+    <div class="two">
+      <figure class="viz-fig"><div class="viz r85" id="strViz" role="img" aria-label="3D model of the selected solid structure"><span class="hint">Drag to rotate</span></div></figure>
+      <div class="card" id="strInfo" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="sub"><h3><span class="n">9.2</span>More giant structures and molecules</h3>
+    <div class="grid3">
+      <div class="card"><h4>Graphene</h4><p>A single layer of graphite. 3 bonds per carbon, 4th electron delocalized. Very strong, and conducts along the sheet.</p></div>
+      <div class="card"><h4>Carbon nanotubes</h4><p>Graphene rolled into a tube. Very strong, conducts along the tube. Could be used to carry drugs into cells.</p></div>
+      <div class="card"><h4>Buckminsterfullerene, C₆₀</h4><p>A ball of 60 carbon atoms with delocalized electrons. Careful: it is a <b>molecule</b>, not a giant structure.</p></div>
+      <div class="card"><h4>Silicon dioxide, SiO₂</h4><p>Giant covalent, like diamond but made of Si and O. High melting point, hard, does not conduct, does not dissolve.</p></div>
+      <div class="card"><h4>Ice</h4><p>Water molecules held in an open, regular pattern by <button type="button" class="term" data-w="hbond">hydrogen bonds</button>. The molecules are further apart than in liquid water, so ice floats.</p></div>
+      <div class="card"><h4>Connect it to Part 5</h4><p>Diamond carbons are bonded like methane: 4 bonds, tetrahedral (sp³). Graphite carbons are like ethene: 3 bonds at 120° (sp²), and the spare p electron is the delocalized one.</p></div>
+    </div>
+  </div>
+  <div class="check" data-q="c9"></div>
+</section>
+
+<!-- ============ PART 10 ============ -->
+<section class="part" id="p10">
+  <div class="sec-head"><p class="kicker">Part 10 · the whole chapter</p><h2>Final quiz</h2><p class="lede">Twenty questions. Eight are on hybridization. The explanation appears straight away, right or wrong.</p></div>
+  <div class="score"><span>Score: <span class="n" id="scoreN">0 / 20</span></span><button class="btn" id="resetQuiz" type="button">Start again</button></div>
+  <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+  <div class="quiz" id="quiz"></div>
+</section>
+
+<section class="part" id="words">
+  <div class="sec-head"><p class="kicker">Word bank</p><h2>Key words in simple language</h2></div>
+  <div class="words" id="wordList"></div>
+</section>
+
+<footer>Built from Chapter 3, Bonding and Structure, by Dr. Yassmin Rakha (notes pages 59 to 92). Melting points, bond lengths, bond energies and ionic radii are typical data-book values; your data booklet may differ slightly.</footer>
+</div>
+<div class="pop" id="pop" role="tooltip" hidden></div>
+<canvas id="confetti" hidden aria-hidden="true"></canvas>
+
+<script src="vendor/three.min.js"></script>
+<script src="bonding/core.js"></script>
+<script src="bonding/data.js"></script>
+<script src="bonding/three-kit.js"></script>
+<script src="bonding/parts.js"></script>
+
+</body>
+</html>

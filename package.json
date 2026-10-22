@@ -1,0 +1,8 @@
+{
+  "name": "bonding-structure-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interactive AS Chemistry Chapter 3: Bonding and Structure",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
