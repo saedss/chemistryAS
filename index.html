@@ -202,6 +202,42 @@
     </div>
     <div class="callout good"><b>Stronger ionic bonding = smaller ions and bigger charges.</b> They get closer and pull harder. MgO (Mg²⁺ and O²⁻) melts at about 2850 °C. NaCl (Na⁺ and Cl⁻) melts at 801 °C.</div>
   </div>
+
+  <div class="sub"><h3><span class="n">2.7</span>Evidence that ions exist</h3>
+    <p class="prose">How do we know ions are real? Edexcel asks for three pieces of evidence: the <b>properties</b> of ionic compounds (2.5), <b>electron density maps</b> and the <b>migration of ions</b>.</p>
+    <div class="two">
+      <canvas class="anim" id="cvMapNaCl" role="img" aria-label="Animation: electron density map of sodium chloride, with separate contour rings around each ion"></canvas>
+      <div class="prose">
+        <p><b>Electron density maps.</b> X-rays bounce off the electrons in a crystal. From the pattern, scientists draw a map of where the electrons are. It looks like a contour map: lines close together mean lots of electrons.</p>
+        <ul><li>Each ion has its <b>own separate rings</b>. No line goes around both.</li><li>Between the ions the electron density falls <b>almost to zero</b>. Nothing is shared.</li><li>The Cl⁻ rings spread wider than the Na⁺ rings, because Cl⁻ is the bigger ion.</li></ul>
+      </div>
+    </div>
+    <div class="two">
+      <div class="prose">
+        <p><b>Migration of ions.</b> Put a drop of green copper(II) chromate(VI) solution in the middle of damp filter paper. Connect the ends to a DC supply and wait.</p>
+        <ul><li>A <b>blue</b> color moves to the <b>negative</b> electrode. These are Cu²⁺ ions.</li><li>A <b>yellow</b> color moves to the <b>positive</b> electrode. These are CrO₄²⁻ ions.</li></ul>
+        <p>Charged particles move toward the opposite charge. The colors split, so the compound is made of two kinds of charged particles: ions.</p>
+      </div>
+      <canvas class="anim" id="cvMig" role="img" aria-label="Animation: a green spot on damp filter paper splits into blue copper ions moving to the negative electrode and yellow chromate ions moving to the positive electrode"></canvas>
+    </div>
+    <div class="check" data-q="c2c"></div>
+  </div>
+
+  <div class="sub"><h3><span class="n">2.8</span>Polarization: when ionic bonds get a bit covalent</h3>
+    <p class="prose">So far ions have been perfect spheres. Real ions are not. A positive ion pulls on the electrons of the negative ion next to it and <b>distorts</b> its electron cloud. This is called <b>polarization</b> (Edexcel spells it "polarisation"). Pick a pair and watch the cloud bend.</p>
+    <div class="stage">
+      <div class="chiprow" id="polC" role="group" aria-label="Choose a positive ion"></div>
+      <div class="chiprow" id="polA" role="group" aria-label="Choose a negative ion"></div>
+      <canvas id="cvPol" role="img" aria-label="A positive ion distorting the electron cloud of a negative ion"></canvas>
+      <p class="callout" id="polMsg" aria-live="polite"></p>
+    </div>
+    <div class="grid2">
+      <div class="card"><h4>Polarizing power (the positive ion)</h4><p>How strongly a cation distorts an anion. It is bigger when the cation is <b>small</b> and has a <b>high charge</b>, because the charge is packed into a tiny space. Al³⁺ &gt; Mg²⁺ &gt; Na⁺.</p></div>
+      <div class="card"><h4>Polarizability (the negative ion)</h4><p>How easily an anion's cloud is distorted. It is bigger when the anion is <b>large</b> and has a <b>high charge</b>, because its outer electrons are far from the nucleus and held loosely. I⁻ &gt; Cl⁻ &gt; F⁻.</p></div>
+    </div>
+    <div class="callout good"><b>Why it matters:</b> when the cloud is pulled toward the cation, some electron density sits <b>between</b> the ions, a bit like a shared pair. The bond becomes partly covalent. The more polarization, the more <b>covalent character</b>.</div>
+    <div class="check" data-q="c2d"></div>
+  </div>
   <div class="check" data-q="c2"></div>
   <div class="check" data-q="c2b"></div>
 </section>
@@ -270,6 +306,21 @@
       <div class="card"><h4>NO₃⁻</h4><p>The nitrate ion has a double bond, a single bond and a dative bond. They all end up equal in strength.</p></div>
     </div>
   </div>
+
+  <div class="sub"><h3><span class="n">3.6</span>Evidence for covalent bonds</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="chiprow" id="mapBtns" role="group" aria-label="Choose a substance"><button class="chip" type="button" data-m="cl2" aria-pressed="true">Cl₂ (covalent)</button><button class="chip" type="button" data-m="nacl" aria-pressed="false">NaCl (ionic)</button></div>
+        <canvas class="anim" id="cvMapCov" role="img" aria-label="Electron density map of chlorine, with contours that surround both nuclei"></canvas>
+      </figure>
+      <div class="prose">
+        <p><b>Electron density maps.</b> In a Cl₂ molecule the outer contour lines go <b>around both nuclei together</b>. There is a <b>high electron density between the nuclei</b>. That is the shared pair, held by both nuclei.</p>
+        <p>Switch to NaCl to compare. There the rings stay separate and the density between the ions drops almost to zero.</p>
+        <p><b>Physical properties.</b> Giant covalent structures such as diamond have very high melting points (Part 9). Millions of covalent bonds must break, so covalent bonds must be strong.</p>
+      </div>
+    </div>
+    <div class="check" data-q="c3b"></div>
+  </div>
   <div class="check" data-q="c3"></div>
 </section>
 
@@ -308,6 +359,7 @@
     <p class="badge">★ Take this part slowly</p>
     <p>Hybridization sounds scary, but it is only <b>three small steps</b>. Each step below has a picture, an everyday comparison and a quick check. Do not move on until the check makes sense.</p>
     <div class="steps3"><span>1 Promote</span><i>→</i><span>2 Mix</span><i>→</i><span>3 Spread out</span></div>
+    <p class="cap"><b>Scope:</b> hybridization comes from your teacher's notes (pages 69 to 71), not the Edexcel specification. Edexcel only asks for σ and π bonds in C=C (spec 5.1) and shapes from electron-pair repulsion (Part 6). This part sticks to the notes.</p>
     <p>Want every step explained slowly, with more 3D models and a practice drill? <a class="btn primary" href="hybridization.html">Open the full hybridization guide →</a></p>
   </div>
 
@@ -425,29 +477,28 @@
   </div>
 
   <div class="sub" id="pi"><h3><span class="n">5.7</span>Leftover p orbitals make π bonds</h3>
-    <p class="prose">In sp² and sp atoms, some p orbitals were <b>not</b> mixed. They stick out at right angles. When two of them sit side by side, they overlap <b>sideways</b> and make a <button type="button" class="term" data-w="pi">π (pi) bond</button>. This is how double and triple bonds form.</p>
+    <p class="prose">In sp² and sp atoms, some p orbitals were <b>not</b> mixed. They stick out at right angles. When two of them sit side by side, they overlap <b>sideways</b> and make a <button type="button" class="term" data-w="pi">π (pi) bond</button>. This is how the C=C double bond forms.</p>
     <div class="two">
       <figure class="viz-fig">
         <div class="viz r70" id="piViz" role="img" aria-label="3D ethene showing sigma bonds and the pi bond"><span class="hint">Drag to rotate</span></div>
         <div class="pi-ctrls"><label><input type="checkbox" id="showSig" checked> σ framework</label><label><input type="checkbox" id="showP" checked> 2p orbitals</label><label><input type="checkbox" id="showPi" checked> π bond</label></div>
-        <div class="slider"><label for="twist" class="cap">Twist the right-hand CH₂ group around the C=C axis</label><input type="range" id="twist" min="0" max="90" step="1" value="0"><div class="readout"><span id="twistDeg">θ = 0°</span><span id="twistOv">π overlap ∝ cos θ = 1.00</span><span id="twistMsg"></span></div></div>
+        <div class="slider"><label for="twist" class="cap">Twist the right-hand CH₂ group around the C=C axis</label><input type="range" id="twist" min="0" max="90" step="1" value="0"><div class="readout"><span id="twistDeg">θ = 0°</span><span id="twistOv">π overlap 100%</span><span id="twistMsg"></span></div></div>
         <div class="ctrls"><button class="btn primary" id="piAuto" type="button">Auto-twist</button><button class="btn" id="piReplay" type="button">Replay bond forming</button></div>
       </figure>
       <div class="prose">
         <p><b>Ethene, C₂H₄ (page 71).</b> Each carbon is sp². Press <b>Replay</b>: two CH₂ pieces move in, their sp² lobes meet head-on (the σ bond), then the two upright p orbitals overlap sideways (the π bond). The π bond is a cloud <b>above and below</b> the molecule.</p>
-        <p><b>Now twist it.</b> As one end turns, the p orbitals stop being side by side, so the overlap shrinks. At 90° the π bond is broken. That costs about 260 kJ mol⁻¹, so at room temperature a C=C bond does not rotate. A single bond (σ only) rotates freely.</p>
-        <p><b>Ethyne, C₂H₂.</b> Each carbon is sp, with <b>two</b> leftover p orbitals. They make <b>two</b> π bonds, so the carbons share a triple bond: 1σ + 2π.</p>
+        <p><b>Now twist it.</b> As one end turns, the p orbitals stop being side by side, so the overlap shrinks. At 90° the π bond is broken. So a C=C bond does not rotate. A single bond (σ only) can rotate (page 69).</p>
         <div class="vs">
           <div class="card"><h4><span class="dotc" style="background:var(--sigma)"></span>σ bond</h4><ul><li>Head-on overlap</li><li>Electrons on the line between nuclei</li><li>Stronger</li><li>Allows rotation</li><li>Every single bond is one σ</li></ul></div>
-          <div class="card"><h4><span class="dotc" style="background:var(--pi)"></span>π bond</h4><ul><li>Sideways overlap of two p orbitals</li><li>Electrons above and below the line</li><li>Weaker</li><li>Stops rotation</li><li>Double = 1σ + 1π, triple = 1σ + 2π</li></ul></div>
+          <div class="card"><h4><span class="dotc" style="background:var(--pi)"></span>π bond</h4><ul><li>Sideways overlap of two p orbitals</li><li>Electrons above and below the line</li><li>Weaker</li><li>Stops rotation</li><li>C=C = 1σ + 1π</li></ul></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="sub" id="predict"><h3><span class="n">5.8</span>The shortcut: count the regions</h3>
-    <div class="rule"><b>Count the regions around the central atom.</b><span>2 → sp → linear 180°</span><span>3 → sp² → trigonal planar 120°</span><span>4 → sp³ → tetrahedral 109.5°</span></div>
-    <p class="prose">A <button type="button" class="term" data-w="region">region</button> is a single bond, a double bond, a triple bond, or a lone pair. <b>Each counts as one.</b> Lone pairs count. Double and triple bonds count only once. Try some molecules:</p>
+  <div class="sub" id="predict"><h3><span class="n">5.8</span>The shortcut: count the bonded atoms</h3>
+    <div class="rule"><b>Count the atoms bonded to the central atom.</b><span>2 → sp → linear 180°</span><span>3 → sp² → trigonal planar 120°</span><span>4 → sp³ → tetrahedral 109.5°</span></div>
+    <p class="prose">Each bonded atom needs one hybrid orbital. A double bond still counts once, because only its σ part uses a hybrid. Try the molecules from your notes:</p>
     <div class="chiprow" id="mols" role="group" aria-label="Choose a molecule"></div>
     <div class="two">
       <div class="panel" id="predOut"></div>
@@ -565,6 +616,7 @@
       <p class="callout" id="tugMsg" aria-live="polite"></p>
     </div>
     <p class="prose">If both atoms pull equally (H–H, Cl–Cl), the bond is <b>non-polar</b>. If one pulls harder, the shared pair sits closer to it. That end gets a small negative charge, <b>δ−</b>, and the other end <b>δ+</b>. This is a <b>polar covalent bond</b>, or a <button type="button" class="term" data-w="dipole">dipole</button>. δ just means "a little bit". If the difference is very big, the electron is pulled right over and you get ions instead.</p>
+    <div class="callout"><b>Bonding is a sliding scale.</b> Pure covalent (same atoms, equal pull) and ionic (electron fully transferred) are the two ends. Polar bonds sit in between. The bigger the electronegativity difference, the closer a bond is to ionic. Polarization (2.8) is the same scale, seen from the ionic end.</div>
   </div>
   <div class="sub"><h3><span class="n">7.3</span>Polar and non-polar molecules</h3>
     <div class="two">
@@ -670,6 +722,7 @@
 <script src="bonding/three-kit.js"></script>
 <script src="bonding/parts.js"></script>
 <script src="bonding/hyb.js"></script>
+<script src="bonding/spec.js"></script>
 
 </body>
 </html>

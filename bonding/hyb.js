@@ -128,7 +128,7 @@ if($('steps'))(function initLab(){
 
 /* ---- 5.7 ethene ---- */
 const PIS={theta:0,auto:false,at:0,sig:true,p:true,pi:true};let piView=null,ethFB=null;
-function piReadout(){const th=Math.round(PIS.theta),c=Math.cos(PIS.theta*Math.PI/180);$('twistDeg').textContent=`θ = ${th}°`;$('twistOv').textContent=`π overlap ∝ cos θ = ${c.toFixed(2)}`;const m=$('twistMsg');m.textContent=th>=88?'π bond broken':th>=45?'π bond weakening':'';m.className=th>=88?'broken':'';}
+function piReadout(){const th=Math.round(PIS.theta),c=Math.cos(PIS.theta*Math.PI/180);$('twistDeg').textContent=`θ = ${th}°`;$('twistOv').textContent=`π overlap ${Math.round(c*100)}%`;const m=$('twistMsg');m.textContent=th>=88?'π bond broken':th>=45?'π bond weakening':'';m.className=th>=88?'broken':'';}
 function ethFallback(){
   const host=$('piViz'),LC=[160,125],RC=[280,125];let h='';
   h+=`<g id="sigz"><ellipse cx="220" cy="125" rx="24" ry="13" fill="var(--sigma)" fill-opacity=".6"/></g><g id="piz"><ellipse cx="220" cy="86" rx="58" ry="20" fill="var(--pi)" fill-opacity=".55"/><ellipse cx="220" cy="164" rx="58" ry="20" fill="var(--pi)" fill-opacity=".55"/></g>`;
@@ -157,13 +157,13 @@ if($('mols'))(function predictor(){
   function show(i){const m=MOLS[i],n=m.sig+m.lp,hy=n===2?'sp':n===3?'sp²':'sp³';
     row.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===i?'true':'false'));
     $('predOut').innerHTML=`<p class="kicker">${m.name} · central atom ${m.c}</p>
-      <div class="count"><div><small>σ bonds</small><b data-n="${m.sig}">${m.sig}</b></div><div><small>lone pairs</small><b data-n="${m.lp}">${m.lp}</b></div><div><small>regions</small><b data-n="${n}">${n}</b></div></div>
+      <div class="count"><div><small>atoms bonded to ${m.c}</small><b data-n="${m.sig}">${m.sig}</b></div><div><small>hybrid orbitals needed</small><b data-n="${n}">${n}</b></div></div>
       <div class="result"><div class="hy"><small>hybridization</small><b>${hy}</b></div><div><small>shape</small><b>${m.shape}</b></div><div><small>bond angle</small><b>${m.angle}</b></div></div>
-      <p class="cap">${m.why}${m.pi?` π bonds on ${m.c}: <strong>${m.pi}</strong>, made from the leftover 2p orbital${n===2?'s':''}.`:''}</p>`;
+      <p class="cap">${m.why}</p>`;
     $('predOut').querySelectorAll('.count b').forEach(b=>countUp(b,+b.dataset.n));
     if(pv){const g=vsepr(m.sig,m.lp);pv.build(v=>buildMolecule(v,{center:m.c,bonds:g.bonds,lps:g.lps,ligs:m.lig,pDirs:n===3?[N3(0,1,0)]:n===2?[N3(0,1,0),N3(0,0,1)]:[],pFilled:m.pi>0,arcs:g.arcs.map(a=>[a[0],a[1],m.angle]),L:1.4}));}
     else fbSet($('predViz'),shapeSVG({n,lp:m.lp,ligs:m.lig,center:m.c,angle:m.angle,view:n===3?'top':'',pExtra:'none'}));
-    $('predCap').textContent=`${m.f}: ${m.shape.toLowerCase()}. ${m.lp?'Purple lobes are lone pairs. ':''}${m.pi?'The cyan p orbitals make the π bonds. ':''}Pink spots are σ bonds.`;}
+    $('predCap').textContent=`${m.f}: ${m.shape.toLowerCase()}. ${m.lp?'Purple lobes are lone pairs. ':''}${m.pi?'The cyan p orbitals make the π bond. ':''}Pink spots are σ bonds.`;}
   row.addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)show(+b.dataset.i);});show(0);
 })();
 

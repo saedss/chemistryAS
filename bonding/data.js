@@ -35,14 +35,17 @@ const CHECKS={
   c1:{q:'Magnesium oxide, MgO, is made from a metal and a non-metal. What type of bonding does it have?',o:['Ionic','Covalent','Metallic'],a:0,x:'Metal + non-metal → ionic. Mg passes 2 electrons to O.'},
   c2:{q:'What is the formula of aluminium sulfate? (Al³⁺ and SO₄²⁻)',o:['Al₂(SO₄)₃','Al₃(SO₄)₂','AlSO₄','Al₂SO₄₃'],a:0,x:'The lowest number both 3 and 2 go into is 6. Two Al³⁺ make +6, three SO₄²⁻ make −6. Brackets, because there is more than one sulfate.'},
   c2b:{q:'Why does MgO have a much higher melting point than NaCl?',o:['Mg²⁺ and O²⁻ are smaller and more highly charged, so they attract more strongly','MgO has covalent bonds','MgO molecules are heavier','NaCl has delocalized electrons'],a:0,x:'Smaller ions get closer, and 2+ / 2− charges pull harder than 1+ / 1−. More energy is needed to separate them.'},
+  c2c:{q:'In an electron density map of sodium chloride, what shows that the bonding is ionic?',o:['Each ion has its own separate contour rings, and the density between them falls almost to zero','The contours wrap around both nuclei together','There is a high density of electrons between Na and Cl','The Na⁺ rings are bigger than the Cl⁻ rings'],a:0,x:'Separate rings with almost no electrons between them mean nothing is shared: the particles are separate ions.'},
+  c2d:{q:'Which cation has the greatest polarizing power?',o:['Al³⁺','Mg²⁺','Na⁺','K⁺'],a:0,x:'Al³⁺ is the smallest and has the highest charge, so its charge is the most concentrated. It distorts nearby anions the most.'},
+  c3b:{q:'What does the electron density map of a Cl₂ molecule show?',o:['Contours that surround both nuclei, with a high electron density between them','Two separate sets of rings with almost no electrons between them','No electrons near the nuclei','Electrons only on the outside of the molecule'],a:0,x:'The shared pair puts a lot of electron density between the two nuclei. That is the evidence for a covalent bond.'},
   c3:{q:'In the ammonium ion, NH₄⁺, how many bonds are dative, and how do the four N–H bonds compare at the end?',o:['1 dative bond, and all four N–H bonds end up identical','4 dative bonds','1 dative bond, which stays weaker than the others','No dative bonds'],a:0,x:'The N lone pair goes to H⁺: one dative bond. Once formed it is the same as the others, and the + charge is spread over the whole ion.'},
   c4:{q:'Which carbon–carbon bond is the shortest and strongest?',o:['C–C','C=C','C≡C'],a:2,x:'A triple bond has the most electrons between the nuclei, so the pull is strongest and the atoms are closest.'},
   c5a:{q:'Oxygen is 1s² 2s² 2p⁴. How many unpaired electrons does it have, and so how many bonds can it make?',o:['0','1','2','4'],a:2,x:'The four 2p electrons fill the boxes as ↑↓ ↑ ↑. Two are single, so O makes 2 bonds, as in H₂O.'},
   c5b:{q:'After promotion, carbon\'s outer electrons are arranged as',o:['2s² 2p²','2s¹ 2p³','2s⁰ 2p⁴','2s² 2p³'],a:1,x:'One electron moves from 2s up to the empty 2p box. Now 2s has 1 and 2p has 3: four single electrons.'},
   c5c:{q:'Mixing one s orbital with two p orbitals gives',o:['2 sp orbitals','3 sp² orbitals, with 1 p orbital left over','3 sp³ orbitals','2 sp² orbitals and 1 p orbital'],a:1,x:'Orbitals in = orbitals out: 1 + 2 = 3. The name is the recipe: s¹p² = sp². The third p was not used, so it is left over.'},
   c5d:{q:'Three identical hybrid orbitals push each other apart. Where do they end up?',o:['In a straight line, 180°','In a flat triangle, 120°','At the corners of a tetrahedron, 109.5°','At right angles, 90°'],a:1,x:'Three things spread as far as possible in a flat triangle, 120° apart. That is sp², as in BCl₃.'},
-  c5e:{q:'In HCN the carbon has a single bond to H and a triple bond to N. What is the hybridization of the carbon?',o:['sp','sp²','sp³'],a:0,x:'Two regions (the triple bond counts once) → sp → linear, 180°. The two leftover p orbitals make the two π bonds of the triple bond.'},
-  c5f:{q:'The nitrogen in NH₃ has 3 bonds and 1 lone pair. What is its hybridization?',o:['sp³','sp²','sp','N is not hybridized'],a:0,x:'3 bonds + 1 lone pair = 4 regions → sp³. The lone pair sits in one of the four sp³ orbitals.'},
+  c5e:{q:'In ethene, H₂C=CH₂, what is the hybridization of each carbon?',o:['sp²','sp³','sp'],a:0,x:'Each carbon mixes its 2s with two 2p orbitals into three sp² orbitals. They make σ bonds to two H and to the other C. The one unmixed 2p orbital makes the π bond (page 71).'},
+  c5f:{q:'In BeCl₂, which orbitals of beryllium mix, and what shape results?',o:['2s and one 2p, giving two sp orbitals: linear, 180°','2s and two 2p, giving three sp² orbitals: trigonal planar','2s and three 2p, giving four sp³ orbitals: tetrahedral','1s and 2s, giving two sp orbitals: linear'],a:0,x:'Be is promoted to 1s² 2s¹ 2p¹. The 2s and one 2p mix into two sp orbitals, which point opposite ways: 180° (page 70).'},
   c6:{q:'Using the table method, SF₄ has 6 + 4 = 10 electrons, so 5 pairs. How many lone pairs are on S?',o:['0','1','2','5'],a:1,x:'5 pairs in total, 4 are bonding pairs (one for each F), so 5 − 4 = 1 lone pair.'},
   c6b:{q:'Why is the bond angle in H₂O (104.5°) smaller than in CH₄ (109.5°)?',o:['Lone pairs repel more than bonding pairs and squeeze the bonds together','Water has fewer electron pairs','Oxygen is bigger than carbon','Hydrogen atoms attract each other'],a:0,x:'Both have 4 pairs. Water has 2 lone pairs, which push harder and close the H–O–H angle by about 2.5° each.'},
   c7:{q:'Why is CO₂ non-polar even though each C=O bond is polar?',o:['It is linear and symmetrical, so the two bond dipoles cancel','C and O have the same electronegativity','CO₂ has no electrons','Double bonds cannot be polar'],a:0,x:'Each O pulls equally hard in opposite directions. The pulls cancel, so there is no overall dipole.'},
@@ -55,9 +58,9 @@ const QUIZ=[
   {q:'Which hybridization gives a trigonal planar shape with 120° bond angles?',o:['sp','sp²','sp³','none of these'],a:1,x:'Three sp² orbitals spread out flat, 120° apart, as in BCl₃ and around each carbon in ethene.'},
   {q:'The C=C double bond in ethene is made of',o:['two σ bonds','two π bonds','one σ bond and one π bond','one σ bond and two π bonds'],a:2,x:'σ from head-on sp²–sp² overlap. π from sideways overlap of the leftover 2p orbitals.'},
   {q:'Which statement about π bonds is correct?',o:['They are stronger than σ bonds','They form by head-on overlap','Their electrons sit above and below the line between the nuclei','They allow free rotation'],a:2,x:'Sideways p overlap puts the electrons above and below. π bonds are weaker than σ bonds and stop rotation.'},
-  {q:'The nitrogen in NH₃ is',o:['sp³, because 3 bonds + 1 lone pair = 4 regions','sp², because it has 3 bonds','sp, because it has 1 lone pair','not hybridized'],a:0,x:'Lone pairs count as regions. 4 regions → sp³. The lone pair squeezes the angle to 107°.'},
-  {q:'In CO₂ the carbon atom is',o:['sp, with two π bonds','sp², with one π bond','sp³, with no π bonds','not hybridized'],a:0,x:'Count σ bonds and lone pairs only: 2 regions → sp. The two leftover p orbitals form the two π bonds.'},
-  {q:'Why does a C–C single bond rotate freely, but a C=C double bond does not?',o:['Ethene is heavier','Twisting a C=C would break the sideways p overlap of the π bond','Double bonds have lone pairs','The hydrogens block it'],a:1,x:'A σ bond looks the same from every angle. The π bond needs the two p orbitals side by side. Twisting 90° breaks it.'},
+  {q:'A σ (sigma) bond is',o:['an area of electron density symmetrical about the axis joining the two atoms','a sideways overlap of two p orbitals','a bond with electrons above and below the two atoms','a bond that cannot rotate'],a:0,x:'This is the definition on page 70. σ bonds form by head-on overlap, so the electrons sit on the line between the nuclei.'},
+  {q:'In BeCl₂ the beryllium atom is',o:['sp, so the molecule is linear, 180°','sp², so it is trigonal planar','sp³, so it is tetrahedral','not hybridized'],a:0,x:'One 2s electron is promoted, then 2s and one 2p mix into two sp orbitals. They point opposite ways: linear, 180° (page 70).'},
+  {q:'Why does a C–C single bond rotate freely, but a C=C double bond does not?',o:['Ethene is heavier','Twisting a C=C would break the sideways p overlap of the π bond','Double bonds have lone pairs','The hydrogens block it'],a:1,x:'A σ bond looks the same from every angle. The π bond needs the two p orbitals side by side. Twisting would break it.'},
   {q:'Ionic bonding is best described as',o:['electrostatic attraction between oppositely charged ions in a lattice','a pair of shared electrons','ions in a sea of electrons','weak attraction between molecules'],a:0,x:'This is the definition from page 60.'},
   {q:'What is the formula of calcium phosphate? (Ca²⁺ and PO₄³⁻)',o:['Ca₃(PO₄)₂','Ca₂(PO₄)₃','CaPO₄','Ca(PO₄)₂'],a:0,x:'3 × (+2) = +6 and 2 × (−3) = −6. Brackets because there are two phosphate ions.'},
   {q:'Sodium chloride conducts electricity',o:['only when melted or dissolved','only when solid','always','never'],a:0,x:'The ions must be free to move. In the solid they are locked in the lattice.'},
@@ -81,7 +84,7 @@ const STEPNAMES=[['01','Ground state'],['02','Promote'],['03','Mix'],['04','Spre
 const ATOMS={
   sp3:{el:'C',name:'Carbon',Z:6,ground:'1s² 2s² 2p²',excited:'1s² 2s¹ 2p³',hybCfg:'1s² (sp³)⁴',nHyb:4,hyb:'sp3',hybTxt:'sp³',molecule:'CH₄',lig:'H',shape:'Tetrahedral',angle:'109.5°',view:'tet',pExtra:'none',
     cap:[['Ground state','Carbon is 1s² 2s² 2p². Only the two 2p electrons are single (the glowing orbitals). On paper carbon could make just two bonds. But methane, CH₄, has four identical C–H bonds.'],
-      ['Step 1: promote','A little energy lifts one 2s electron into the empty 2p orbital. Now it is 1s² 2s¹ 2p³ with four single electrons. Making two extra bonds pays back that energy many times over.'],
+      ['Step 1: promote','A little energy lifts one 2s electron into the empty 2p orbital. Now it is 1s² 2s¹ 2p³ with four single electrons. Carbon can now make four bonds instead of two, which is worth the small cost.'],
       ['Step 2: mix','The 2s and all three 2p orbitals blend into four identical sp³ orbitals (one s plus three p). Each has one big lobe, one small lobe and one electron.'],
       ['Step 3: spread out','Four sp³ orbitals repel equally, so they point to the corners of a tetrahedron. Each overlaps head-on with a hydrogen 1s orbital to make a σ bond. Bond angle 109.5°. All four bonds are identical.']]},
   sp2:{el:'B',name:'Boron',Z:5,ground:'1s² 2s² 2p¹',excited:'1s² 2s¹ 2p²',hybCfg:'1s² (sp²)³',nHyb:3,hyb:'sp2',hybTxt:'sp²',molecule:'BCl₃',lig:'Cl',shape:'Trigonal planar',angle:'120°',view:'tilt',pExtra:'empty',
@@ -98,19 +101,13 @@ const ATOMS={
     cap:[['Ground state','Same carbon as before, 1s² 2s² 2p². In ethene each carbon bonds to two H and one C, with a double bond between the carbons (page 71).'],
       ['Step 1: promote','Promotion works exactly as in methane: 1s² 2s¹ 2p³, four single electrons.'],
       ['Step 2: mix only three','This time the 2s and just two of the 2p orbitals blend, giving three sp² orbitals. The third 2p orbital is not mixed and keeps its electron.'],
-      ['Step 3: spread out','Three sp² orbitals make σ bonds at 120°: two to H, one to the other carbon. The leftover 2p orbital stands at right angles to the plane. It overlaps sideways with the 2p on the other carbon to make the π bond (5.7).']]}
+      ['Step 3: spread out','Three sp² orbitals make σ bonds at 120°: two to H, one to the other carbon. The leftover 2p orbital stands at right angles to the plane. It overlaps sideways with the 2p on the other carbon to make the π bond (page 71).']]}
 };
 const MOLS=[
-  {f:'CH₄',name:'Methane',c:'C',sig:4,lp:0,pi:0,shape:'Tetrahedral',angle:'109.5°',lig:['H','H','H','H'],why:'Four σ bonds and no lone pairs: four regions, so carbon is sp³.'},
-  {f:'NH₃',name:'Ammonia',c:'N',sig:3,lp:1,pi:0,shape:'Trigonal pyramidal',angle:'107°',lig:['H','H','H'],why:'Three bonds plus one lone pair still make four regions, so nitrogen is sp³. The lone pair pushes harder and squeezes the angle to 107°.'},
-  {f:'H₂O',name:'Water',c:'O',sig:2,lp:2,pi:0,shape:'Bent',angle:'104.5°',lig:['H','H'],why:'Two bonds plus two lone pairs: four regions, sp³. Two lone pairs squeeze the angle down to 104.5°.'},
-  {f:'BF₃',name:'Boron trifluoride',c:'B',sig:3,lp:0,pi:0,shape:'Trigonal planar',angle:'120°',lig:['F','F','F'],why:'Three regions, sp². One empty 2p orbital is left over, so BF₃ can accept a lone pair.'},
-  {f:'BeCl₂',name:'Beryllium chloride',c:'Be',sig:2,lp:0,pi:0,shape:'Linear',angle:'180°',lig:['Cl','Cl'],why:'Two regions, sp. Two empty 2p orbitals are left over.'},
-  {f:'CO₂',name:'Carbon dioxide',c:'C',sig:2,lp:0,pi:2,shape:'Linear',angle:'180°',lig:['O','O'],why:'Each C=O is one σ plus one π. Count only σ bonds and lone pairs: two regions, so sp. The two leftover 2p orbitals make the two π bonds, one to each O.'},
-  {f:'C₂H₄',name:'Ethene (each carbon)',c:'C',sig:3,lp:0,pi:1,shape:'Trigonal planar',angle:'120°',lig:['C','H','H'],why:'Each carbon has two C–H σ bonds and one C–C σ bond. Three regions, sp². The leftover 2p orbital gives the π bond.'},
-  {f:'C₂H₂',name:'Ethyne (each carbon)',c:'C',sig:2,lp:0,pi:2,shape:'Linear',angle:'180°',lig:['C','H'],why:'Each carbon has one C–H σ and one C–C σ. Two regions, sp. Two leftover 2p orbitals give two π bonds: a triple bond.'},
-  {f:'HCN',name:'Hydrogen cyanide',c:'C',sig:2,lp:0,pi:2,shape:'Linear',angle:'180°',lig:['N','H'],why:'Carbon has one C–H σ and one C–N σ. Two regions, sp. The C≡N triple bond is one σ plus two π.'},
-  {f:'NH₄⁺',name:'Ammonium ion',c:'N',sig:4,lp:0,pi:0,shape:'Tetrahedral',angle:'109.5°',lig:['H','H','H','H'],why:'After the dative bond, N has four σ bonds and no lone pair: sp³, a perfect tetrahedron.'}
+  {f:'CH₄',name:'Methane',c:'C',sig:4,lp:0,pi:0,shape:'Tetrahedral',angle:'109.5°',lig:['H','H','H','H'],why:'Carbon bonds to 4 atoms. It needs 4 hybrid orbitals, so it mixes 2s + three 2p: sp³.'},
+  {f:'BCl₃',name:'Boron trichloride',c:'B',sig:3,lp:0,pi:0,shape:'Trigonal planar',angle:'120°',lig:['Cl','Cl','Cl'],why:'Boron bonds to 3 atoms. It needs 3 hybrid orbitals, so it mixes 2s + two 2p: sp². One empty 2p orbital is left over.'},
+  {f:'BeCl₂',name:'Beryllium chloride',c:'Be',sig:2,lp:0,pi:0,shape:'Linear',angle:'180°',lig:['Cl','Cl'],why:'Beryllium bonds to 2 atoms. It needs 2 hybrid orbitals, so it mixes 2s + one 2p: sp. Two empty 2p orbitals are left over.'},
+  {f:'C₂H₄',name:'Ethene (each carbon)',c:'C',sig:3,lp:0,pi:1,shape:'Trigonal planar',angle:'120°',lig:['C','H','H'],why:'Each carbon bonds to 3 atoms (2 H and 1 C). It mixes 2s + two 2p: sp². The unmixed 2p orbital makes the π bond.'}
 ];
 const ORDERS={
   ch4:{label:'CH₄',q:'Explain, using hybridization, why methane is tetrahedral with a bond angle of 109.5°.',steps:[
@@ -135,13 +132,13 @@ const ORDERS={
 };
 const MYTHS=[
   ['"sp³ means 3 orbitals."','The 3 counts the p orbitals that went in. 1 s + 3 p = 4 sp³ orbitals.'],
-  ['"A double bond counts as 2 regions."','Any bond, single, double or triple, counts as 1 region. Count σ bonds and lone pairs only.'],
-  ['"Lone pairs don\'t count."','They do. NH₃ has 3 bonds + 1 lone pair = 4 regions, so N is sp³.'],
-  ['"The π bond sits between the two nuclei."','That is the σ bond. The π bond is above and below the line joining the nuclei.'],
-  ['"Hybrid orbitals are just p orbitals."','They are a mix of s and p. A hybrid has one big lobe and one small lobe, so it can point at one atom.'],
+  ['"A C=C double bond is two identical bonds."','It is one σ bond plus one π bond. The π bond is weaker than the σ bond.'],
+  ['"The π bond sits between the two nuclei."','That is the σ bond. The π bond is above and below the plane of the molecule.'],
+  ['"Hybrid orbitals are just p orbitals."','They are a mix of the 2s and some 2p orbitals. All the hybrids made are identical.'],
   ['"The 1s electrons get promoted too."','Only the outer electrons (2s and 2p) take part. The inner 1s pair stays where it is.'],
-  ['"Promotion costs energy, so it makes the molecule less stable."','It costs a little energy, but forming two extra bonds releases much more. Overall the molecule is more stable.'],
-  ['"Hybridization only happens in carbon."','Boron (sp² in BCl₃), beryllium (sp in BeCl₂), nitrogen (sp³ in NH₃) and oxygen (sp³ in H₂O) all use it too.']
+  ['"Promotion makes the atom less stable, so it should not happen."','It costs a little energy, but the atom can then make more bonds, and that is worth it.'],
+  ['"Hybridization only happens in carbon."','Boron (sp² in BCl₃) and beryllium (sp in BeCl₂) use it too.'],
+  ['"In BCl₃ all the 2p orbitals are used."','Only two 2p orbitals mix with the 2s. The third 2p is left empty, at right angles to the flat molecule.']
 ];
 const GROUPS=[
   {g:'1',q:'1+',el:'Li Na K',s:'Na',n:1,act:'lose',ex:'Na → Na⁺ + e⁻',why:'Group 1 atoms have 1 outer electron. Losing 1 is much easier than gaining 7, so they form 1+ ions.'},
@@ -209,44 +206,33 @@ const STR_INFO={
   nacl:{t:'Sodium chloride',k:'Ionic',pts:['Na⁺ and Cl⁻ ions alternate in a cube pattern.','Each ion is surrounded by 6 ions of the opposite charge.','High melting point (801 °C): lots of strong attractions to break.','Conducts only when melted or dissolved.']},
   metal:{t:'Magnesium',k:'Metallic',pts:['Mg²⁺ ions packed as closely as possible, layer on layer.','A sea of delocalized electrons (the moving dots) holds them together.','Conducts electricity and heat. Malleable, ductile and shiny.']},
   iodine:{t:'Iodine',k:'Molecular',pts:['I₂ molecules arranged in a regular pattern.','A strong covalent bond holds the two atoms in each molecule.','Only weak van der Waals forces between molecules, so it melts at just 114 °C.','Does not conduct: no charged particles. Does not dissolve well in water.']},
-  diamond:{t:'Diamond',k:'Macromolecular',pts:['Each carbon is bonded to 4 others in a tetrahedral pattern, like methane (sp³).','Very hard and a very high melting point: millions of strong covalent bonds.','Does not conduct: all 4 outer electrons are used in bonds.']},
-  graphite:{t:'Graphite',k:'Macromolecular',pts:['Flat layers of hexagons. Each carbon bonds to 3 others at 120°, like ethene (sp²).','The 4th electron of each carbon is delocalized (the moving dots), so graphite conducts along the layers.','Weak forces between layers let them slide, so graphite is soft and slippery.','Very high melting point: strong covalent bonds within each layer.']}
+  diamond:{t:'Diamond',k:'Macromolecular',pts:['Each carbon is bonded to 4 others in a tetrahedral pattern, like methane.','Very hard and a very high melting point: millions of strong covalent bonds.','Does not conduct: all 4 outer electrons are used in bonds.']},
+  graphite:{t:'Graphite',k:'Macromolecular',pts:['Flat layers of hexagons. Each carbon bonds to 3 others at 120°, like the carbons in ethene.','The 4th electron of each carbon is delocalized (the moving dots), so graphite conducts along the layers.','Weak forces between layers let them slide, so graphite is soft and slippery.','Very high melting point: strong covalent bonds within each layer.']}
 };
 
 /* ---------- hybridization guide page ---------- */
 Object.assign(CHECKS,{
-  hc1:{q:'Suppose carbon only promoted an electron and bonded with its 2p orbitals as they are. What angle would those bonds be at?',o:['90°','109.5°','120°','180°'],a:0,x:'The three 2p orbitals sit at right angles (along x, y and z). Bonds made with them would be at 90°. Real methane has 109.5°, so mixing must happen.'},
-  hc2:{q:'When an s orbital mixes with a p orbital, the big lobe of the hybrid forms where',o:['the s orbital and that p lobe have the same sign, so they add up','the s orbital and that p lobe have opposite signs','the nucleus is','there are no electrons'],a:0,x:'Same sign: the waves add, so that side grows. Opposite sign: they partly cancel, so that side shrinks.'},
   hc3:{q:'In each C–H bond of methane, where do the two shared electrons come from?',o:['One from a carbon sp³ orbital, one from the hydrogen 1s orbital','Both from carbon','Both from hydrogen','From carbon\'s 1s orbital'],a:0,x:'Each sp³ orbital has one electron and each H 1s orbital has one. They overlap head-on and pair up: a σ bond.'},
-  hc4:{q:'The oxygen in H₂O is sp³. How many of its four sp³ orbitals hold lone pairs?',o:['2','1','0','4'],a:0,x:'O has 6 outer electrons in 4 sp³ orbitals: two orbitals get 2 electrons (lone pairs), two get 1 electron (the two O–H bonds).'},
-  hc5:{q:'How many σ and π bonds are in ethyne, H–C≡C–H?',o:['3 σ and 2 π','5 σ','2 σ and 3 π','1 σ and 2 π'],a:0,x:'Two C–H σ bonds plus one C–C σ bond make 3 σ. The triple bond adds 2 π bonds from the leftover p orbitals.'}
+  hc6:{q:'Which statement about the π bond in ethene is correct?',o:['It forms by sideways overlap of two unmixed 2p orbitals, above and below the plane','It forms by head-on overlap of two sp² orbitals','It is stronger than the σ bond','It lets the two ends rotate freely'],a:0,x:'Page 69: the π bond is a sideways overlap of p orbitals, above and below the plane. It is weaker than the σ bond, and it stops rotation.'},
 });
 const DRILL=[
-  {f:'CH₄',s:'Methane. C has 4 single bonds to H.',look:'C',a:3,why:'4 single bonds + 0 lone pairs = 4 regions → sp³.'},
-  {f:'C₂H₄',s:'Ethene, H₂C=CH₂.',look:'either C',a:2,why:'2 C–H + 1 C=C (counts once) = 3 regions → sp².'},
-  {f:'C₂H₂',s:'Ethyne, H–C≡C–H.',look:'either C',a:1,why:'1 C–H + 1 C≡C (counts once) = 2 regions → sp.'},
-  {f:'CO₂',s:'O=C=O.',look:'C',a:1,why:'2 double bonds, no lone pairs = 2 regions → sp.'},
-  {f:'BF₃',s:'B bonded to 3 F, no lone pair.',look:'B',a:2,why:'3 regions → sp². One empty p orbital is left.'},
-  {f:'BeCl₂',s:'Cl–Be–Cl.',look:'Be',a:1,why:'2 regions → sp.'},
-  {f:'NH₃',s:'N with 3 H and 1 lone pair.',look:'N',a:3,why:'3 bonds + 1 lone pair = 4 regions → sp³.'},
-  {f:'H₂O',s:'O with 2 H and 2 lone pairs.',look:'O',a:3,why:'2 bonds + 2 lone pairs = 4 regions → sp³.'},
-  {f:'HCN',s:'H–C≡N.',look:'C',a:1,why:'1 C–H + 1 C≡N = 2 regions → sp.'},
-  {f:'CH₂O',s:'Methanal, H₂C=O.',look:'C',a:2,why:'2 C–H + 1 C=O = 3 regions → sp².'},
-  {f:'NH₄⁺',s:'N with 4 H, no lone pair.',look:'N',a:3,why:'4 bonds = 4 regions → sp³.'},
-  {f:'CH₃OH',s:'Methanol. C has 3 C–H and 1 C–O.',look:'C',a:3,why:'4 single bonds = 4 regions → sp³.'},
-  {f:'Diamond',s:'Each C bonded to 4 other C.',look:'any C',a:3,why:'4 bonds = 4 regions → sp³, tetrahedral.'},
-  {f:'Graphite',s:'Each C bonded to 3 other C in a flat sheet.',look:'any C',a:2,why:'3 bonds = 3 regions → sp². The spare p electron is delocalized.'},
-  {f:'Propene, middle C',s:'CH₃–CH=CH₂. The middle C has 1 C–C, 1 C=C and 1 C–H.',look:'the middle C',a:2,why:'3 regions (the double bond counts once) → sp².'}
+  {f:'CH₄',s:'Methane. C bonds to 4 H.',look:'C',a:3,why:'4 bonded atoms → 4 hybrids → sp³, tetrahedral, 109.5°.'},
+  {f:'CCl₄',s:'C bonds to 4 Cl with single bonds.',look:'C',a:3,why:'4 bonded atoms → sp³, just like methane.'},
+  {f:'C₂H₆',s:'Ethane, H₃C–CH₃. Each C bonds to 3 H and 1 C.',look:'either C',a:3,why:'4 bonded atoms around each C → sp³.'},
+  {f:'BCl₃',s:'B bonds to 3 Cl.',look:'B',a:2,why:'3 bonded atoms → sp². One empty 2p orbital is left.'},
+  {f:'BF₃',s:'B bonds to 3 F. Same group as BCl₃.',look:'B',a:2,why:'3 bonded atoms → sp², trigonal planar, 120°.'},
+  {f:'BeCl₂',s:'Cl–Be–Cl.',look:'Be',a:1,why:'2 bonded atoms → sp, linear, 180°.'},
+  {f:'C₂H₄',s:'Ethene, H₂C=CH₂.',look:'either C',a:2,why:'Each C bonds to 3 atoms (2 H and 1 C) → sp². The unmixed 2p makes the π bond.'}
 ];
 const HYB_QUIZ=[
-  {q:'Why can\'t carbon just use its 2s and three 2p orbitals as they are to make the four bonds in CH₄?',o:['Three bonds would be at 90° and the fourth (from the s orbital) would be different','The 2s orbital has no electrons','p orbitals cannot make bonds','Carbon would need d orbitals'],a:0,x:'Measured methane has four identical bonds at 109.5°. Unmixed orbitals cannot give that, so they must mix.'},
-  {q:'What is promotion for?',o:['It gives carbon 4 unpaired electrons, so it can make 4 bonds','It makes the bonds identical','It sets the 109.5° angle','It removes an electron'],a:0,x:'Promotion fixes the number of bonds. Mixing fixes the shape and makes them identical.'},
-  {q:'Promotion costs roughly 400 kJ mol⁻¹. Why does carbon still do it?',o:['Two extra C–H bonds release roughly 830 kJ mol⁻¹, so the molecule ends up lower in energy','Promotion releases energy','Hydrogen supplies the energy for free','It does not cost anything'],a:0,x:'Spend about 400, get back about 830: overall about 420 kJ mol⁻¹ better off.'},
-  {q:'Why does a hybrid orbital have one big lobe and one small lobe?',o:['The s orbital adds to one lobe of the p orbital and partly cancels the other','Electrons push one lobe out','The nucleus moves','Small lobes hold the lone pairs'],a:0,x:'Same sign adds (big lobe), opposite sign cancels (small lobe).'},
+  {q:'Why can\'t carbon just use its 2p orbitals as they are to bond in CH₄?',o:['It has only 2 single electrons in them, and p orbitals sit at 90°, but CH₄ has 4 identical bonds at 109.5°','The 2p orbitals have no electrons','p orbitals cannot make bonds','Carbon would need d orbitals'],a:0,x:'Ground-state carbon would make only 2 bonds, at 90°. Promotion and mixing explain the 4 identical bonds at 109.5°.'},
+  {q:'What is promotion for?',o:['It gives carbon 4 unpaired electrons, so it can make 4 bonds','It makes the bonds identical','It sets the 109.5° angle','It removes an electron'],a:0,x:'Promotion fixes the number of bonds. Mixing makes them identical, and spreading out sets the shape.'},
+  {q:'During promotion in carbon, which electron moves, and where to?',o:['One 2s electron, into the empty 2p orbital','One 1s electron, into 2s','One 2p electron, into 3s','Both 2s electrons, into 2p'],a:0,x:'A little energy lifts one 2s electron into the empty 2p orbital: 1s² 2s¹ 2p³.'},
+  {q:'In BeCl₂, which orbitals of beryllium hybridize?',o:['2s and one 2p, giving two sp orbitals','2s and two 2p, giving three sp² orbitals','1s and 2s','All three 2p only'],a:0,x:'Be is 1s² 2s² → promoted to 1s² 2s¹ 2p¹. The 2s and one 2p mix: two sp orbitals, 180° apart.'},
   {q:'How many hybrid orbitals do you get from 1 s + 2 p?',o:['3 sp²','2 sp','4 sp³','3 sp³'],a:0,x:'Orbitals in = orbitals out. The name is the recipe: s¹p² = sp².'},
-  {q:'Why do four sp³ orbitals end up at 109.5° and not 90°?',o:['In 3D, the corners of a tetrahedron are further apart than the arms of a flat cross','109.5° is the size of a carbon atom','Hydrogen pulls them','They are attracted to each other'],a:0,x:'The pairs repel and get as far apart as possible. A flat cross only gives 90°; a tetrahedron gives 109.5° between every pair.'},
-  {q:'Nitrogen in NH₃ is sp³. Does nitrogen need promotion first?',o:['No: it already has 3 single electrons; its 4 sp³ orbitals hold 3 single electrons and 1 lone pair','Yes, always','Yes, from 1s to 2s','No, because it is not hybridized'],a:0,x:'N is 2s² 2p³. Mixing all four gives one sp³ with a pair and three with one electron each: 3 bonds + 1 lone pair.'},
-  {q:'In ethyne, H–C≡C–H, how are the two π bonds made?',o:['From the two leftover p orbitals on each sp carbon, overlapping sideways','From the sp orbitals overlapping head-on','From the hydrogen 1s orbitals','From lone pairs'],a:0,x:'sp carbon keeps two p orbitals at right angles. Each pair overlaps sideways: two π bonds.'},
-  {q:'Which carbon is sp²?',o:['The C in methanal, H₂C=O','The C in methane, CH₄','The C in CO₂','The C in ethyne, C₂H₂'],a:0,x:'3 regions: 2 C–H and 1 C=O. CH₄ is sp³; CO₂ and C₂H₂ are sp.'},
-  {q:'BCl₃ is sp² with one empty p orbital. What does that empty orbital explain?',o:['Why BCl₃ can accept a lone pair and form a dative bond, e.g. with NH₃','Why BCl₃ is linear','Why BCl₃ has a π bond','Why boron has 8 electrons'],a:0,x:'The empty p orbital can take a whole lone pair from another molecule.'}
+  {q:'Why do four sp³ orbitals end up at 109.5° and not 90°?',o:['They repel, and in 3D the corners of a tetrahedron are further apart than the arms of a flat cross','109.5° is the size of a carbon atom','Hydrogen pulls them','They are attracted to each other'],a:0,x:'The pairs repel and get as far apart as possible. A flat cross only gives 90°; a tetrahedron gives 109.5° between every pair.'},
+  {q:'A σ bond is',o:['an area of electron density symmetrical about the axis joining the two atoms','electron density above and below the plane','the sideways overlap of two p orbitals','always weaker than a π bond'],a:0,x:'Page 70 definition. σ bonds come from head-on overlap.'},
+  {q:'The C=C double bond in ethene is made of',o:['one σ bond and one π bond','two σ bonds','two π bonds','one σ bond and two π bonds'],a:0,x:'Head-on sp² overlap gives the σ bond. Sideways overlap of the unmixed 2p orbitals gives the π bond (page 69).'},
+  {q:'Which central atom is sp²?',o:['B in BCl₃','C in CH₄','Be in BeCl₂','C in CCl₄'],a:0,x:'Boron bonds to 3 atoms: three sp² orbitals, trigonal planar. CH₄ and CCl₄ are sp³; BeCl₂ is sp.'},
+  {q:'BCl₃ is sp² with one empty p orbital. What does that empty orbital explain?',o:['Why BCl₃ can accept a lone pair and form a dative bond, e.g. with NH₃','Why BCl₃ is linear','Why BCl₃ has a π bond','Why boron has 8 electrons'],a:0,x:'The empty p orbital can take a whole lone pair from another molecule (page 68).'}
 ];

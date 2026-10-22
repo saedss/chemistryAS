@@ -290,39 +290,9 @@ function buildOrbitalSet(v){
   addArc(v,N3(1,0,0),N3(0,1,0),'90°',1.4);
   v.tick(t=>{const k=easeBack(seg(t,.05,.6));s.g.scale.setScalar(Math.max(.001,k));s.g.visible=sl.visible=ORB.s;ps.forEach((p,i)=>{const kk=easeBack(seg(t,.25+i*.2,.8+i*.2));p.o.g.scale.setScalar(Math.max(.001,kk));p.o.g.visible=p.lab.visible=ORB[p.k];});});
 }
-function buildNoMix(v){
-  v.mode='spin';v.add(atomMesh('C',.22));const s=orbS(.5,TOK.s);v.add(s.g);
-  const P=[N3(1,0,0),N3(0,1,0),N3(0,0,1)],sd=N3(-1,-1,-1);
-  P.forEach(d=>{const o=orbP(d,1.15,TOK.p,1);v.add(o.g);});
-  const Hs=P.map((d,i)=>({d,D:1.72,ov:1.28,t0:.4+i*.25})).concat([{d:sd,D:.9,ov:.5,t0:1.15,odd:true}]);
-  Hs.forEach(h=>{const g=new THREE.Group();g.add(atomMesh('H',.16));const so=orbS(.36,TOK.s);g.add(so.g);v.add(g);const ov=ovMesh(h.d);ov.position.copy(h.d).multiplyScalar(h.ov);v.add(ov);
-    v.tick(t=>{const k=easeOut(seg(t,h.t0,h.t0+.7));g.position.copy(h.d).multiplyScalar(lerp(5,h.D,k));g.visible=t>=h.t0;const b=seg(t,h.t0+.6,h.t0+.9);ov.scale.setScalar(Math.max(.001,b));ov.visible=b>0;});});
-  addArc(v,P[0],P[1],'90°',2.1);addArc(v,P[1],P[2],'90°',2.4);
-  const odd=pill('odd one out: uses the s orbital',TOK.bad,.28);odd.position.copy(sd).multiplyScalar(1.55);v.add(odd);
-  v.tick(t=>{odd.visible=t>2.6;odd.material.opacity=seg(t,2.6,3.1);});
-}
 function buildLobes(v,from,to,lab){
   v.mode='spin';v.add(atomMesh('C',.2));
   const lobes=to.map((d,i)=>{const o=orbH(UPV,1.5,TOK.hyb);v.add(o.g);return {o,a:from[i],b:d};});
   v.tick(t=>{const k=ease(seg(t,.3,1.6));lobes.forEach(x=>{const d=x.a.clone().lerp(x.b,k);if(d.lengthSq()<1e-4)d.set(0,1,0);d.normalize();x.o.g.quaternion.setFromUnitVectors(UPV,d);});});
   addArc(v,to[0],to[1],lab,1.7);
-}
-const YN={p:true,pi:true};
-function buildEthyne(v){
-  v.mode='sway';const cc=.62,g1=new THREE.Group(),g2=new THREE.Group();v.add(g1);v.add(g2);const sig=[],pO=[],els=[];
-  [[g1,1],[g2,-1]].forEach(([g,sgn])=>{g.add(atomMesh('C',.22));const toC=N3(sgn,0,0),toH=N3(-sgn,0,0);
-    const a=orbH(toC,.66,TOK.hyb);g.add(a.g);const b=orbH(toH,.95,TOK.hyb);g.add(b.g);
-    const hh=new THREE.Group();hh.position.copy(toH).multiplyScalar(1.28);hh.add(atomMesh('H',.15));const so=orbS(.36,TOK.s);hh.add(so.g);g.add(hh);
-    const om=ovMesh(toH);om.position.copy(toH).multiplyScalar(.92);g.add(om);sig.push(om);
-    [0,Math.PI].forEach(ph=>{const e=electron();g.add(e);els.push({e,f:orbitFn('b',toH,.92,ph)});});
-    [N3(0,1,0),N3(0,0,1)].forEach(d=>{const o=orbP(d,.88,TOK.p,1);g.add(o.g);pO.push(o.g);});});
-  const cc0=ovMesh(N3(1,0,0));v.add(cc0);const ccE=[0,Math.PI].map(ph=>{const e=electron();v.add(e);return {e,f:orbitFn('b',N3(1,0,0),0,ph)};});
-  const piCol2=mixHex(TOK.pi,TOK.p,.4);
-  const pis=[[V3(0,.74,0),V3(.78,.22,.3),TOK.pi,0],[V3(0,-.74,0),V3(.78,.22,.3),TOK.pi,0],[V3(0,0,.74),V3(.78,.3,.22),piCol2,1],[V3(0,0,-.74),V3(.78,.3,.22),piCol2,1]].map(([p,s,col,k])=>{const m=new THREE.Mesh(GEO.sph,phong(col,.5,{emissive:new THREE.Color(col),emissiveIntensity:.25}));m.position.copy(p);m.scale.copy(s);v.add(m);return {m,k,s};});
-  const l1=pill('π bond 1',TOK.pi,.28);l1.position.set(0,1.18,0);v.add(l1);const l2=pill('π bond 2',piCol2,.28);l2.position.set(0,-.2,1.25);v.add(l2);const ls=pill('σ',TOK.sigma,.26);ls.position.set(0,-.38,0);v.add(ls);
-  v.tick(t=>{const ki=ease(seg(t,.1,1.2));g1.position.x=lerp(-2.6,-cc,ki);g2.position.x=lerp(2.6,cc,ki);
-    const ks=ease(seg(t,1.2,1.6));cc0.scale.setScalar(Math.max(.001,ks));cc0.userData.m.material.opacity=.6*ks;ccE.forEach(x=>{x.e.position.copy(x.f(t));x.e.visible=ks>.5;});ls.visible=ks>.9;
-    const kp=[ease(seg(t,1.8,2.6)),ease(seg(t,2.7,3.5))];
-    pis.forEach(p=>{const k=kp[p.k];p.m.visible=YN.pi&&k>.01;p.m.material.opacity=.5*k;p.m.scale.set(p.s.x,p.s.y*(.4+.6*k),p.s.z);});
-    l1.visible=YN.pi&&kp[0]>.9;l2.visible=YN.pi&&kp[1]>.9;pO.forEach(o=>o.visible=YN.p);els.forEach(x=>x.e.position.copy(x.f(t)));});
 }
