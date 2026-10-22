@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="A slow, step-by-step guide to hybridization for AS Chemistry, with 3D models, animations and practice.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hybridization">
+<meta name="theme-color" content="#f3f6fa">
+<title>Hybridization, Step by Step</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="bonding/style.css">
+<style>
+.back{font-family:var(--mono);font-size:.8rem;color:var(--accent);text-decoration:none}
+.back:hover{text-decoration:underline}
+.story{display:grid;gap:10px;background:var(--card);border:2px solid var(--hyb);border-radius:16px;padding:18px}
+.story ol{display:grid;gap:8px}
+.story li b{font-family:var(--display)}
+.nextl{display:flex;justify-content:flex-end}
+.nextl a{font-family:var(--display);font-weight:700;text-decoration:none;color:var(--accent-ink);background:var(--accent);border-radius:999px;padding:8px 16px}
+.nextl a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.qa{display:grid;gap:8px}
+.qa h4{color:var(--accent)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.why .card h4::before{content:"? ";color:var(--sigma)}
+.drill{display:grid;gap:12px;position:relative}
+.drill .mol{font-family:var(--display);font-weight:800;font-size:2.2rem}
+.drill .ans{display:flex;gap:8px;flex-wrap:wrap}
+.drill .ans .btn{min-width:84px;font-size:1.1rem}
+.drill .ans .btn.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--card))}
+.drill .ans .btn.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--card));animation:shake .45s}
+.lpbox svg{width:100%;height:auto;display:block}
+.cheat{background:var(--card);border:2px solid var(--accent);border-radius:16px;padding:18px;display:grid;gap:10px}
+.cheat ol{display:grid;gap:6px}
+</style>
+</head>
+<body>
+<nav class="toc" aria-label="Lessons">
+  <div class="toc-in" id="tocIn">
+    <a href="#top">Start</a><a href="#l1">1 The question</a><a href="#l2">2 Orbitals in 3D</a><a href="#l3">3 Promote</a><a href="#l4">4 Mix</a><a href="#l5">5 Spread out</a><a href="#l6">6 Bond</a><a href="#l7">7 All together</a><a href="#l8">8 π bonds</a><a href="#l9">9 Lone pairs</a><a href="#l10">10 Shortcut</a><a href="#l11">11 Exam answers</a><a href="#l12">12 Test yourself</a>
+  </div>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+</nav>
+
+<div class="wrap">
+<header class="hero" id="top">
+  <div class="hero-text">
+    <a class="back" href="index.html#p5">← Back to the whole chapter</a>
+    <p class="kicker">AS Chemistry · Chapter 3 · notes pages 69 to 71</p>
+    <h1><span class="glow">Hybridization</span>, step by step</h1>
+    <p class="lede">This guide takes hybridization apart into small pieces and explains each one in plain words, with a picture you can play with. Twelve short lessons. Go in order, and do not skip the quick checks.</p>
+    <p class="cap">New to 1s, 2s and 2p? Read <a href="index.html#p0">Part 0 on the main page</a> first. It takes five minutes and makes everything here easier. Tap any <button type="button" class="term" data-w="term">dotted word</button> for a simple meaning.</p>
+  </div>
+  <figure class="viz-fig">
+    <div class="viz r85" id="heroViz" role="img" aria-label="Rotating 3D methane with four sp3 hybrid orbitals"><span class="hint">Drag to rotate</span></div>
+    <figcaption>Methane, CH₄. By the end of this guide you will be able to explain every part of this picture.</figcaption>
+  </figure>
+</header>
+
+<!-- L1 -->
+<section class="part" id="l1">
+  <div class="sec-head"><p class="kicker">Lesson 1</p><h2>The question this guide answers</h2></div>
+  <div class="story">
+    <p class="kicker">The whole story in one minute</p>
+    <ol>
+      <li><b>The problem.</b> Carbon has only 2 single electrons, so it "should" make 2 bonds. But in methane it makes <b>4 identical bonds at 109.5°</b>.</li>
+      <li><b>Step 1, promote.</b> One electron moves up from 2s to the empty 2p. Now carbon has 4 single electrons, so it can make 4 bonds.</li>
+      <li><b>Step 2, mix.</b> The 2s and the three 2p orbitals blend into 4 brand-new, identical orbitals called sp³.</li>
+      <li><b>Step 3, spread out.</b> The 4 new orbitals push each other away and point to the corners of a tetrahedron, 109.5° apart.</li>
+      <li><b>Step 4, bond.</b> Each one overlaps with a hydrogen orbital. The two electrons pair up and make a bond.</li>
+    </ol>
+    <p class="cap">Do not worry if this does not click yet. Each lesson below takes one of these lines and explains it slowly.</p>
+  </div>
+  <div class="two">
+    <div class="prose">
+      <p>Carbon's address is <span class="cfg">1s² 2s² 2p²</span>. In box form, the 2s room has a pair (↑↓), and two of the three 2p rooms have one electron each (↑ ↑). The third 2p room is empty.</p>
+      <p>A bond needs one single electron from each atom. Carbon has only <b>two</b> single electrons. So on paper it should make two bonds, at 90°, because p orbitals sit at right angles.</p>
+      <p>But scientists measured methane. It has <b>four</b> bonds. All four are the same length and the same strength. Every angle between them is <b>109.5°</b>. The simple picture is wrong, and we need a better one.</p>
+    </div>
+    <div class="vs2" id="puzzleFig">
+      <figure><figcaption>The simple idea predicts</figcaption><svg viewBox="-140 -110 280 220" id="pzL" role="img" aria-label="Two p orbitals at 90 degrees bonding to two hydrogens"></svg></figure>
+      <figure><figcaption>Experiments measure</figcaption><svg viewBox="-140 -110 280 220" id="pzR" role="img" aria-label="Tetrahedral methane with four identical bonds at 109.5 degrees"></svg></figure>
+    </div>
+  </div>
+  <div class="nextl"><a href="#l2">Next: carbon's orbitals in 3D →</a></div>
+</section>
+
+<!-- L2 -->
+<section class="part" id="l2">
+  <div class="sec-head"><p class="kicker">Lesson 2</p><h2>Meet carbon's outer orbitals in 3D</h2>
+  <p class="lede">Before we change anything, look at what carbon starts with. Its outer shell (floor 2) has one 2s orbital and three 2p orbitals.</p></div>
+  <div class="two">
+    <figure class="viz-fig">
+      <div class="viz r85" id="orbViz" role="img" aria-label="Carbon's 2s orbital and three 2p orbitals in 3D"><span class="hint">Drag to rotate</span></div>
+      <div class="chiprow" id="orbBtns" role="group" aria-label="Show or hide orbitals"><button class="chip" type="button" data-k="s" aria-pressed="true">2s</button><button class="chip" type="button" data-k="x" aria-pressed="true">2px</button><button class="chip" type="button" data-k="y" aria-pressed="true">2py</button><button class="chip" type="button" data-k="z" aria-pressed="true">2pz</button></div>
+    </figure>
+    <div class="prose">
+      <p>The <b>2s orbital</b> (yellow) is a ball around the nucleus. It has no direction: it is the same in every direction.</p>
+      <p>The three <b>2p orbitals</b> (blue) are dumbbells. Each one points along its own line: x (left–right), y (up–down) and z (front–back). They are all at <b>90°</b> to each other, like the corner of a box.</p>
+      <p>Tap the buttons to show one orbital at a time. Spin the model to see that the three p orbitals really are at right angles.</p>
+      <div class="callout"><b>Remember:</b> an orbital is a space where electrons can be. It can hold 0, 1 or 2 electrons. The shape is the same whether it is empty or full.</div>
+    </div>
+  </div>
+  <div class="sub"><h3>What if carbon did not mix them?</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r85" id="nomixViz" role="img" aria-label="Methane built from unmixed orbitals compared with real methane"><span class="hint">Drag to rotate</span></div>
+        <div class="chiprow" id="nomixBtns" role="group" aria-label="Choose a model"><button class="chip" type="button" data-m="no" aria-pressed="true">Promote only (wrong)</button><button class="chip" type="button" data-m="yes" aria-pressed="false">Promote and mix (real)</button></div>
+      </figure>
+      <div class="prose">
+        <p>Imagine carbon only did step 1 (promotion) and then bonded with its orbitals exactly as they are.</p>
+        <ul><li>Three H atoms would bond to the three p orbitals. Those bonds would be at <b>90°</b>.</li><li>The fourth H would bond to the round s orbital. That bond would be <b>different</b>: shorter and pointing somewhere else.</li></ul>
+        <p>That is not what methane looks like. Press <b>Promote and mix</b> to see the real thing: four identical bonds at 109.5°.</p>
+        <div class="callout good"><b>The big idea:</b> promotion fixes the <b>number</b> of bonds (4). Mixing fixes the <b>shape</b> and makes all four bonds <b>identical</b>. You need both.</div>
+      </div>
+    </div>
+  </div>
+  <div class="check" data-q="hc1"></div>
+  <div class="nextl"><a href="#l3">Next: step 1, promote →</a></div>
+</section>
+
+<!-- L3 -->
+<section class="part" id="l3">
+  <div class="sec-head"><p class="kicker">Lesson 3</p><h2>Step 1 · Promote</h2></div>
+  <div class="two">
+    <canvas class="anim" id="cvPromo" role="img" aria-label="Animation: one 2s electron jumps up into the empty 2p box"></canvas>
+    <div class="what">
+      <p><b>What happens.</b> One of the two electrons in the 2s room moves up into the empty 2p room. This is called <button type="button" class="term" data-w="promotion">promotion</button>.</p>
+      <p><b>Before:</b> <span class="cfg">1s² 2s² 2p²</span> with 2 single electrons.<br><b>After:</b> <span class="cfg">1s² 2s¹ 2p³</span> with <b>4</b> single electrons.</p>
+      <div class="analogy"><span class="ic">Like this</span><p>Two people share a room downstairs. One room upstairs is empty. One person moves upstairs. Now four people each have their own room, and each can pair up with a visitor (a hydrogen electron).</p></div>
+    </div>
+  </div>
+  <div class="why">
+    <div class="card"><h4>Why does it cost energy?</h4><p>2p is a little higher in energy than 2s, like a higher floor. Moving an electron up takes energy.</p></div>
+    <div class="card"><h4>So why bother?</h4><p>With 4 single electrons, carbon can make <b>2 extra bonds</b>. Every bond releases energy. Two extra C–H bonds give back much more than promotion cost (see the chart).</p></div>
+    <div class="card"><h4>Why the 2s electron, not 1s?</h4><p>1s is an inner shell, far lower in energy. Lifting an electron out of it would cost far too much. Only outer (floor 2) electrons take part.</p></div>
+    <div class="card"><h4>Why into 2p, not 3s?</h4><p>2p is the nearest empty room. Going up to floor 3 would cost much more energy.</p></div>
+  </div>
+  <figure class="svgbox" id="enBox"><svg id="enChart" viewBox="0 0 520 180" role="img" aria-label="Energy cost of promotion compared with energy released by two extra bonds"></svg><figcaption class="cap">Rough values in kJ mol⁻¹. Promotion of carbon costs about 400. One C–H bond releases about 413, so two extra bonds release about 826.</figcaption></figure>
+  <div class="check" data-q="c5b"></div>
+  <div class="nextl"><a href="#l4">Next: step 2, mix →</a></div>
+</section>
+
+<!-- L4 -->
+<section class="part" id="l4">
+  <div class="sec-head"><p class="kicker">Lesson 4</p><h2>Step 2 · Mix</h2>
+  <p class="lede">This is the step most students find strange. "Hybridize" just means "mix". The 2s and the 2p orbitals blend together to make new orbitals that are all exactly the same.</p></div>
+  <div class="sub"><h3>Why the new orbital is lopsided</h3>
+    <div class="two">
+      <canvas class="anim" id="cvWave" role="img" aria-label="Animation: an s orbital adds to one lobe of a p orbital and cancels part of the other, giving a lopsided hybrid"></canvas>
+      <div class="prose">
+        <p>Orbitals are really <b>waves</b>. Each lobe of a p orbital is one side of the wave. One lobe is "up" (+) and the other is "down" (−). The s orbital is "up" (+) everywhere.</p>
+        <p>When you mix them, they add together:</p>
+        <ul><li>On the + side: up + up = <b>bigger</b>. That lobe grows.</li><li>On the − side: down + up = they partly <b>cancel</b>. That lobe shrinks.</li></ul>
+        <p>So a hybrid orbital has <b>one big lobe and one small lobe</b>. The big lobe sticks out a long way in one direction, which makes it very good at reaching another atom and making a strong bond.</p>
+        <p class="cap">You do not need the + and − signs in an exam. They just explain the lopsided shape.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub"><h3>How many orbitals mix? The paint analogy</h3>
+    <div class="analogy"><span class="ic">Like this</span><p>One tin of yellow paint (the s orbital) plus three tins of blue paint (the p orbitals) gives four tins of the same green. You cannot tell which tin was yellow any more. Choose how many p orbitals go in.</p></div>
+    <div class="stage">
+      <div class="chiprow" id="mixBtns" role="group" aria-label="How many p orbitals to mix"><button class="chip" type="button" data-n="1" aria-pressed="false">1 s + 1 p</button><button class="chip" type="button" data-n="2" aria-pressed="false">1 s + 2 p</button><button class="chip" type="button" data-n="3" aria-pressed="true">1 s + 3 p</button></div>
+      <canvas id="cvMix" role="img" aria-label="Animation: tins of s and p paint pour into a bowl and come out as identical hybrid tins"></canvas>
+      <div class="mixread" id="mixRead" aria-live="polite"></div>
+    </div>
+  </div>
+  <div class="why">
+    <div class="card"><h4>How do I read the name?</h4><p>The name is the recipe. <b>sp³</b> = s¹p³ = one s + three p. The small number counts the p orbitals that went in. Add 1 for the s to get the number of hybrids: sp³ → 4, sp² → 3, sp → 2.</p></div>
+    <div class="card"><h4>Orbitals in = orbitals out</h4><p>Mixing never creates or destroys orbitals. Put 4 in, get 4 out. Put 3 in, get 3 out, and the unused p orbital stays exactly as it was.</p></div>
+    <div class="card"><h4>Where are they in energy?</h4><p>The new hybrids sit <b>between</b> 2s and 2p, all at the same level. You can see this in the box diagram in Lesson 7: the hybrid boxes sit in a row between the 2s and 2p lines.</p></div>
+    <div class="card"><h4>How does the atom "choose" how many?</h4><p>It mixes one orbital for each σ bond and each lone pair it needs. Carbon in CH₄ needs 4 → sp³. Carbon in ethene needs 3 → sp², and keeps one p for the π bond (Lesson 8).</p></div>
+  </div>
+  <div class="check" data-q="hc2"></div>
+  <div class="check" data-q="c5c"></div>
+  <div class="nextl"><a href="#l5">Next: step 3, spread out →</a></div>
+</section>
+
+<!-- L5 -->
+<section class="part" id="l5">
+  <div class="sec-head"><p class="kicker">Lesson 5</p><h2>Step 3 · Spread out</h2>
+  <p class="lede">The new hybrid orbitals all contain negative electrons. Negative pushes negative away. So the hybrids spread out until they are as far apart as possible.</p></div>
+  <div class="two">
+    <figure class="viz-fig">
+      <div class="viz r80" id="balViz" role="img" aria-label="Hybrid orbitals pushing apart into their final shape"><span class="hint">Drag to rotate</span></div>
+      <div class="chiprow" id="balBtns" role="group" aria-label="Number of hybrid orbitals"><button class="chip" type="button" data-n="2" aria-pressed="false">2 hybrids (sp)</button><button class="chip" type="button" data-n="3" aria-pressed="false">3 hybrids (sp²)</button><button class="chip" type="button" data-n="4" aria-pressed="true">4 hybrids (sp³)</button></div>
+    </figure>
+    <div class="what">
+      <div class="analogy"><span class="ic">Like this</span><p>Tie balloons together by their knots. They push each other away and settle into exactly these shapes. Press a button: the lobes start bunched up, then push apart.</p></div>
+      <ul><li><b>2 hybrids</b> → straight line, <b>180°</b> (linear)</li><li><b>3 hybrids</b> → flat triangle, <b>120°</b> (trigonal planar)</li><li><b>4 hybrids</b> → tetrahedron, <b>109.5°</b> (tetrahedral)</li></ul>
+    </div>
+  </div>
+  <div class="sub"><h3>Why 109.5° and not 90°?</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r80" id="flatViz" role="img" aria-label="Four lobes in a flat cross compared with a tetrahedron"><span class="hint">Drag to rotate</span></div>
+        <div class="chiprow" id="flatBtns" role="group" aria-label="Choose an arrangement"><button class="chip" type="button" data-m="flat" aria-pressed="false">Flat cross (90°)</button><button class="chip" type="button" data-m="tet" aria-pressed="true">Tetrahedron (109.5°)</button></div>
+      </figure>
+      <div class="prose">
+        <p>On paper, four arms in a flat cross look evenly spread: 90° apart. But a molecule is 3D.</p>
+        <p>If the arms tilt out of the flat page, they can get further apart. The best they can do is point to the corners of a <b>tetrahedron</b> (a triangle-based pyramid). Then <b>every</b> pair of arms is 109.5° apart, which is more than 90°.</p>
+        <p>Further apart means less pushing, so the tetrahedron wins. Switch between the two buttons and spin the model to compare.</p>
+      </div>
+    </div>
+  </div>
+  <div class="check" data-q="c5d"></div>
+  <div class="nextl"><a href="#l6">Next: step 4, bond →</a></div>
+</section>
+
+<!-- L6 -->
+<section class="part" id="l6">
+  <div class="sec-head"><p class="kicker">Lesson 6</p><h2>Step 4 · Overlap and bond</h2></div>
+  <div class="two">
+    <figure class="viz-fig">
+      <div class="viz r85" id="bondViz" role="img" aria-label="Hydrogen atoms arriving and bonding to the four sp3 orbitals of carbon"><span class="hint">Drag to rotate</span></div>
+      <div class="ctrls"><button class="btn primary" type="button" id="bondAgain">Play again</button></div>
+    </figure>
+    <div class="prose">
+      <p>Each of carbon's four sp³ orbitals has <b>one</b> electron. Each hydrogen has <b>one</b> electron in its 1s orbital (the yellow ball).</p>
+      <p>Watch the model. A hydrogen flies in along the line of a big green lobe. Its 1s orbital <b>overlaps head-on</b> with the tip of the lobe (the pink spot). The two electrons pair up in the overlap. That shared pair is the covalent bond.</p>
+      <p>A bond made by head-on overlap is called a <button type="button" class="term" data-w="sigma">σ (sigma) bond</button>. The shared electrons sit right on the line between the two nuclei.</p>
+      <div class="callout good"><b>Why all four bonds are identical:</b> the four sp³ orbitals are identical, and each one meets an identical hydrogen. So the four bonds have the same length, the same strength and the same 109.5° angles. That matches the measurements.</div>
+    </div>
+  </div>
+  <div class="check" data-q="hc3"></div>
+  <div class="nextl"><a href="#l7">Next: watch all the steps for four atoms →</a></div>
+</section>
+
+<!-- L7 -->
+<section class="part" id="l7">
+  <div class="sec-head"><p class="kicker">Lesson 7 · notes pages 70 and 71</p><h2>All the steps together, for four atoms</h2>
+  <p class="lede">Pick an atom and press Play all, or use Next to go one step at a time. The left side is the box diagram from page 70. The right side is the same step in 3D.</p></div>
+  <div id="lab">
+    <div class="tabs" role="tablist" aria-label="Choose an atom">
+      <button class="tab" role="tab" data-atom="sp3" aria-selected="true">sp³ · C in CH₄</button>
+      <button class="tab" role="tab" data-atom="sp2" aria-selected="false">sp² · B in BCl₃</button>
+      <button class="tab" role="tab" data-atom="sp" aria-selected="false">sp · Be in BeCl₂</button>
+      <button class="tab" role="tab" data-atom="sp2c" aria-selected="false">sp² · C in C₂H₄</button>
+    </div>
+    <div class="lab" style="margin-top:12px">
+      <div class="panel">
+        <div class="steps" id="steps"></div>
+        <div class="playbar" aria-hidden="true"><i id="playbar"></i></div>
+        <svg id="diag" viewBox="0 0 340 232" role="img" aria-label="Electron box diagram showing promotion and hybridization"></svg>
+        <div class="cfgline"><span>Configuration</span><span class="cfg" id="cfg"></span><span id="unp"></span></div>
+        <div class="ctrls"><button class="btn primary" id="labPlay" type="button" aria-pressed="false">Play all</button><div class="grp"><button class="btn" id="back" type="button">Back</button><button class="btn" id="next" type="button">Next</button></div></div>
+      </div>
+      <div class="labright">
+        <div class="viz r80" id="labViz" role="img" aria-label="3D orbitals for the selected step"><span class="hint">Drag to rotate</span></div>
+        <div class="note" id="note" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sub"><h3>The three types side by side</h3>
+    <div class="tablewrap"><table class="t">
+      <thead><tr><th></th><th>sp³</th><th>sp²</th><th>sp</th></tr></thead>
+      <tbody>
+        <tr><td class="hx">Example</td><td>C in CH₄</td><td>B in BCl₃, C in C₂H₄</td><td>Be in BeCl₂, C in C₂H₂</td></tr>
+        <tr><td class="hx">Orbitals mixed</td><td>2s + three 2p</td><td>2s + two 2p</td><td>2s + one 2p</td></tr>
+        <tr><td class="hx">Hybrids made</td><td class="num">4</td><td class="num">3</td><td class="num">2</td></tr>
+        <tr><td class="hx">p left over</td><td class="num">0</td><td class="num">1</td><td class="num">2</td></tr>
+        <tr><td class="hx">Shape and angle</td><td>tetrahedral, 109.5°</td><td>trigonal planar, 120°</td><td>linear, 180°</td></tr>
+        <tr><td class="hx">The leftover p does</td><td>nothing (there is none)</td><td>makes 1 π bond (C) or stays empty (B)</td><td>makes 2 π bonds (C) or stays empty (Be)</td></tr>
+        <tr><td class="hx">Share of s in each hybrid</td><td>1 part in 4</td><td>1 part in 3</td><td>1 part in 2</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="nextl"><a href="#l8">Next: what the leftover p orbitals do →</a></div>
+</section>
+
+<!-- L8 -->
+<section class="part" id="l8">
+  <div class="sec-head"><p class="kicker">Lesson 8 · notes pages 69 and 71</p><h2>Leftover p orbitals make π bonds</h2>
+  <p class="lede">In sp² and sp atoms, some p orbitals were not mixed. They stick out at right angles to the hybrids. When two of them sit side by side on neighboring atoms, they overlap <b>sideways</b>. That is a <button type="button" class="term" data-w="pi">π (pi) bond</button>.</p></div>
+  <div class="sub"><h3>Ethene: one σ and one π</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r70" id="piViz" role="img" aria-label="3D ethene showing sigma bonds and the pi bond"><span class="hint">Drag to rotate</span></div>
+        <div class="pi-ctrls"><label><input type="checkbox" id="showSig" checked> σ framework</label><label><input type="checkbox" id="showP" checked> 2p orbitals</label><label><input type="checkbox" id="showPi" checked> π bond</label></div>
+        <div class="slider"><label for="twist" class="cap">Twist the right-hand CH₂ group around the C=C axis</label><input type="range" id="twist" min="0" max="90" step="1" value="0"><div class="readout"><span id="twistDeg">θ = 0°</span><span id="twistOv">π overlap ∝ cos θ = 1.00</span><span id="twistMsg"></span></div></div>
+        <div class="ctrls"><button class="btn primary" id="piAuto" type="button">Auto-twist</button><button class="btn" id="piReplay" type="button">Replay bond forming</button></div>
+      </figure>
+      <div class="prose">
+        <p>Each carbon in ethene is <b>sp²</b>: three hybrids in a flat triangle, plus one leftover p orbital standing straight up.</p>
+        <ol><li>The two carbons meet. One sp² lobe from each overlaps head-on: the C–C <b>σ bond</b>.</li><li>Each carbon's other two sp² lobes bond to H atoms: four C–H σ bonds.</li><li>The two upright p orbitals are now side by side. They overlap sideways, above and below the molecule: the <b>π bond</b>.</li></ol>
+        <p>So the double bond C=C is <b>1 σ + 1 π</b>. Press <b>Replay</b> to watch it form.</p>
+        <p><b>Twist it.</b> As one end turns, the p orbitals stop being side by side, so the π overlap shrinks. At 90° it is gone: the π bond has broken. That is why a C=C bond cannot rotate at room temperature.</p>
+      </div>
+    </div>
+  </div>
+  <div class="sub"><h3>Ethyne: one σ and two π</h3>
+    <div class="two">
+      <figure class="viz-fig">
+        <div class="viz r70" id="ynViz" role="img" aria-label="3D ethyne showing one sigma bond and two pi bonds"><span class="hint">Drag to rotate</span></div>
+        <div class="ctrls"><div class="pi-ctrls"><label><input type="checkbox" id="ynP" checked> 2p orbitals</label><label><input type="checkbox" id="ynPi" checked> π bonds</label></div><button class="btn" id="ynAgain" type="button">Replay</button></div>
+      </figure>
+      <div class="prose">
+        <p>Each carbon in ethyne, H–C≡C–H, is <b>sp</b>: two hybrids in a straight line, plus <b>two</b> leftover p orbitals, at right angles to each other.</p>
+        <p>The sp lobes make the σ bonds (C–H and C–C), all in one straight line, 180°.</p>
+        <p>The leftover p orbitals pair up sideways twice: one π bond above and below, and a second π bond in front and behind. So the triple bond is <b>1 σ + 2 π</b>.</p>
+        <div class="callout"><b>Pattern:</b> single bond = 1 σ. Double bond = 1 σ + 1 π. Triple bond = 1 σ + 2 π. The first bond between two atoms is always σ.</div>
+      </div>
+    </div>
+  </div>
+  <div class="check" data-q="hc5"></div>
+  <div class="nextl"><a href="#l9">Next: lone pairs →</a></div>
+</section>
+
+<!-- L9 -->
+<section class="part" id="l9">
+  <div class="sec-head"><p class="kicker">Lesson 9</p><h2>Lone pairs live in hybrid orbitals too</h2>
+  <p class="lede">Nitrogen in NH₃ and oxygen in H₂O are also sp³. But they work a little differently from carbon, and this confuses a lot of students.</p></div>
+  <div class="tabs" id="lpTabs" role="group" aria-label="Choose a molecule"><button class="tab" type="button" data-k="N" aria-pressed="true">N in NH₃</button><button class="tab" type="button" data-k="O" aria-pressed="false">O in H₂O</button></div>
+  <div class="two">
+    <div class="stage lpbox"><svg id="lpSvg" viewBox="0 0 380 210" role="img" aria-label="Box diagrams before and after hybridization"></svg><div class="prose" id="lpText" aria-live="polite"></div></div>
+    <figure class="viz-fig"><div class="viz r85" id="lpViz" role="img" aria-label="3D model with lone pairs"><span class="hint">Drag to rotate</span></div><figcaption class="cap">Purple lobes are sp³ orbitals holding a lone pair. Green lobes are sp³ orbitals making a bond.</figcaption></figure>
+  </div>
+  <div class="why">
+    <div class="card"><h4>No promotion needed</h4><p>N already has 3 single electrons (2p³). O already has 2. Promotion would not give them any extra single electrons, so they skip it.</p></div>
+    <div class="card"><h4>Still mix all four</h4><p>They still mix 2s + three 2p into four sp³ orbitals. That is what gives the tetrahedral starting shape.</p></div>
+    <div class="card"><h4>Pairs stay paired</h4><p>A hybrid with two electrons is a lone pair. A hybrid with one electron makes a bond. Lone pairs push harder, so the angles shrink: 107° in NH₃, 104.5° in H₂O.</p></div>
+  </div>
+  <div class="check" data-q="hc4"></div>
+  <div class="nextl"><a href="#l10">Next: the shortcut →</a></div>
+</section>
+
+<!-- L10 -->
+<section class="part" id="l10">
+  <div class="sec-head"><p class="kicker">Lesson 10</p><h2>The shortcut: count the regions</h2>
+  <p class="lede">You do not need to draw box diagrams every time. Count the <button type="button" class="term" data-w="region">regions</button> around the atom you are asked about.</p></div>
+  <div class="rule"><b>Regions = σ bonds + lone pairs.</b><span>2 → sp → linear 180°</span><span>3 → sp² → trigonal planar 120°</span><span>4 → sp³ → tetrahedral 109.5°</span></div>
+  <div class="grid3">
+    <div class="card"><h4>A single bond</h4><p>counts as <b>1</b> region.</p></div>
+    <div class="card"><h4>A double or triple bond</h4><p>still counts as <b>1</b> region. Only its σ part is in a hybrid. The π parts use the leftover p orbitals.</p></div>
+    <div class="card"><h4>A lone pair</h4><p>counts as <b>1</b> region. Never forget them.</p></div>
+  </div>
+  <div class="sub"><h3>See it worked out</h3>
+    <div class="chiprow" id="mols" role="group" aria-label="Choose a molecule"></div>
+    <div class="two"><div class="panel" id="predOut"></div><figure class="viz-fig"><div class="viz r85" id="predViz" role="img" aria-label="3D shape of the selected molecule"><span class="hint">Drag to rotate</span></div><figcaption id="predCap"></figcaption></figure></div>
+  </div>
+  <div class="sub"><h3>Your turn: 15 quick ones</h3>
+    <div class="stage drill" id="drill"></div>
+  </div>
+  <div class="nextl"><a href="#l11">Next: exam answers →</a></div>
+</section>
+
+<!-- L11 -->
+<section class="part" id="l11">
+  <div class="sec-head"><p class="kicker">Lesson 11</p><h2>Writing it in an exam</h2>
+  <p class="lede">Examiners give marks for each step, in order. Use the same pattern every time: ground state, promote, mix, shape, bonds.</p></div>
+  <div class="grid2">
+    <div class="card qa"><h4>Methane, CH₄ (sp³)</h4><p>C ground state is 1s² 2s² 2p², with only 2 unpaired electrons. One 2s electron is promoted to the empty 2p orbital: 1s² 2s¹ 2p³, 4 unpaired electrons. The 2s and three 2p orbitals hybridize into four identical sp³ orbitals. These repel equally and point to the corners of a tetrahedron. Each overlaps head-on with an H 1s orbital to form a σ bond. Shape tetrahedral, 109.5°.</p></div>
+    <div class="card qa"><h4>Boron trichloride, BCl₃ (sp²)</h4><p>B ground state is 1s² 2s² 2p¹, with 1 unpaired electron. One 2s electron is promoted: 1s² 2s¹ 2p², 3 unpaired electrons. The 2s and two 2p orbitals hybridize into three identical sp² orbitals; one empty 2p orbital is left. The sp² orbitals repel equally into a flat triangle. Each forms a σ bond with Cl. Shape trigonal planar, 120°.</p></div>
+    <div class="card qa"><h4>Ethene, C₂H₄ (sp² with a π bond)</h4><p>Each C is promoted to 1s² 2s¹ 2p³. The 2s and two 2p orbitals hybridize into three sp² orbitals; one 2p is left unhybridized. The sp² orbitals lie in a plane at 120°. They form σ bonds with two H and with the other C by head-on overlap. The unhybridized 2p orbitals overlap sideways, above and below the plane, to form the π bond. C=C is one σ and one π.</p></div>
+    <div class="card qa"><h4>Ammonia, NH₃ (sp³ with a lone pair)</h4><p>N is 1s² 2s² 2p³, with 3 unpaired electrons. The 2s and three 2p orbitals hybridize into four sp³ orbitals. One holds a lone pair; three hold one electron each. Each of these overlaps with an H 1s orbital to form a σ bond. The lone pair repels more than bonding pairs, so the shape is trigonal pyramidal, 107°.</p></div>
+  </div>
+  <div class="sub"><h3>Practice: put the sentences in order</h3>
+    <div class="stage order" id="order">
+      <div class="tabs" id="ordTabs" role="group" aria-label="Choose a question"></div>
+      <p class="qt" id="ordQ"></p>
+      <ol class="ord-done" id="ordDone"></ol>
+      <div class="ord-pool" id="ordPool"></div>
+      <p class="fb" id="ordFb" hidden></p>
+      <div><button class="btn" type="button" id="ordReset">Shuffle and try again</button></div>
+    </div>
+  </div>
+  <div class="nextl"><a href="#l12">Next: test yourself →</a></div>
+</section>
+
+<!-- L12 -->
+<section class="part" id="l12">
+  <div class="sec-head"><p class="kicker">Lesson 12</p><h2>Common mistakes, then test yourself</h2></div>
+  <p class="prose">Each card shows a mistake students often make. Tap it to see the truth.</p>
+  <div class="myths" id="myths"></div>
+  <div class="sub"><h3>Hybridization quiz</h3>
+    <div class="score"><span>Score: <span class="n" id="scoreH">0 / 10</span></span><button class="btn" id="resetH" type="button">Start again</button></div>
+    <div class="meter" aria-hidden="true"><i id="meterH"></i></div>
+    <div class="quiz" id="hybQuiz"></div>
+  </div>
+  <div class="cheat">
+    <p class="kicker">Keep this in your head</p>
+    <ol>
+      <li><b>Problem:</b> carbon has 2 single electrons but makes 4 identical bonds at 109.5°.</li>
+      <li><b>Promote</b> one 2s electron to 2p → 4 single electrons (fixes the number).</li>
+      <li><b>Mix</b> 2s with as many 2p as needed → identical hybrids (fixes sameness). Name = recipe: sp³, sp², sp.</li>
+      <li><b>Spread out:</b> 4 → 109.5°, 3 → 120°, 2 → 180°.</li>
+      <li><b>Bond:</b> hybrids overlap head-on → σ bonds. Leftover p orbitals overlap sideways → π bonds.</li>
+      <li><b>Shortcut:</b> count σ bonds + lone pairs around the atom.</li>
+    </ol>
+    <p><a class="back" href="index.html#p6">Continue the chapter: shapes of molecules →</a></p>
+  </div>
+</section>
+
+<footer>Part of the Bonding and Structure Lab, built from Chapter 3 notes by Dr. Yassmin Rakha (pages 69 to 71). Energy values are rough data-book figures.</footer>
+</div>
+<div class="pop" id="pop" role="tooltip" hidden></div>
+<canvas id="confetti" hidden aria-hidden="true"></canvas>
+
+<script src="vendor/three.min.js"></script>
+<script src="bonding/core.js"></script>
+<script src="bonding/data.js"></script>
+<script src="bonding/three-kit.js"></script>
+<script src="bonding/hybpage.js"></script>
+<script src="bonding/hyb.js"></script>
+</body>
+</html>
